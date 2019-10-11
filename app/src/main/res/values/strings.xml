@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Queremos Ouvir Você</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Queremos Ouvir Você</string>
+    <string name="nav_header_subtitle">Parasolution Group</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_sair">Sair</string>
+
+    <string name="menu_administrador">Administrador</string>
+    <string name="menu_cadastro_cliente">Cadastro Cliente</string>
+    <string name="menu_perguntas">Perguntas</string>
+    <string name="menu_configuracoes">Configurações</string>
+    <string name="menu_compartilhar">Compartilhar</string>
+    <string name="menu_sobre">Sobre</string>
+
+    <string name="modelo_fragment">Fragmento Modelo</string>
+    <string name="modelo_inicial">Texto Inicial</string>
+</resources>
