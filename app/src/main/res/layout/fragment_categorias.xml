@@ -7,48 +7,48 @@
     android:orientation="vertical"
     android:background="@color/colorPrimaryOrange"
     android:weightSum="10"
-    tools:context=".fragment.CategoriasFragment">
+    tools:context=".fragment.ModeloFragment">
 
     <RelativeLayout
+        android:layout_weight="2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_height="0dp">
 
         <TextView
             android:id="@+id/txtGridTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:text="Escolha as categorias:"
+            android:textSize="34sp"
             android:textColor="@android:color/white"
-            android:textSize="34sp" />
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 
-    <androidx.gridlayout.widget.GridLayout
+    <GridLayout
         android:id="@+id/gridPrincipal"
-        app:columnCount="2"
-        app:rowCount="3"
-        app:alignmentMode="alignMargins"
-        app:columnOrderPreserved="false"
-        android:padding="14dp"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:layout_weight="8"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8">
+        android:padding="0dp">
 
         <!-- Linha 1 -->
+
         <!-- Coluna 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -60,15 +60,6 @@
                 <ImageView
                     android:src="@drawable/cafe"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="Café"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -80,14 +71,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -99,15 +89,6 @@
                 <ImageView
                     android:src="@drawable/cafe"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="Comida"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -116,18 +97,18 @@
         </androidx.cardview.widget.CardView>
 
         <!-- Linha 2 -->
+
         <!-- Coluna 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -139,15 +120,6 @@
                 <ImageView
                     android:src="@drawable/cafe"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="Doce"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -159,14 +131,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -178,15 +149,6 @@
                 <ImageView
                     android:src="@drawable/cafe"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="Salgado"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -195,18 +157,18 @@
         </androidx.cardview.widget.CardView>
 
         <!-- Linha 3 -->
+
         <!-- Coluna 1 -->
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -218,15 +180,6 @@
                 <ImageView
                     android:src="@drawable/cafe"
                     android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="HappyHour"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -238,14 +191,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp"
-            >
+            app:cardCornerRadius="8dp">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -260,19 +212,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:text="Bebida"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.gridlayout.widget.GridLayout>
+    </GridLayout>
 
 </LinearLayout>

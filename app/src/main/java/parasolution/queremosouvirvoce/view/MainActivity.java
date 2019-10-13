@@ -1,31 +1,23 @@
 package parasolution.queremosouvirvoce.view;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
-
-import android.view.Menu;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import parasolution.queremosouvirvoce.R;
-import parasolution.queremosouvirvoce.fragment.CategoriasFragment;
 import parasolution.queremosouvirvoce.fragment.InicialFragment;
-import parasolution.queremosouvirvoce.fragment.ModeloFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,7 +55,7 @@ public class MainActivity extends AppCompatActivity
 
         //metodo que ira trocar o fragmento a ser exibido
         //neste caso precisa ser passado o nome do layout onde o fagmento sera exibido e o nome da classe do fragmento
-        fragmentManager.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
     }
 
     @Override
