@@ -15,6 +15,7 @@ public class Controller extends DataSource {
         super(context);
     }
 
+    //salvar usuário e senha
     public boolean salvar(LoginModel objLoginModel) {
 
         boolean sucesso = true;
@@ -30,4 +31,7 @@ public class Controller extends DataSource {
 
         return sucesso;
     }
+
 }
+
+

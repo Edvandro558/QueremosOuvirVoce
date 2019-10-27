@@ -1,4 +1,4 @@
-package parasolution.queremosouvirvoce.adapter;
+/*package parasolution.queremosouvirvoce.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -92,3 +92,4 @@ public class CategoriasAdapter extends RecyclerView.Adapter<CategoriasAdapter.Ca
         }
     }
 }
+*/

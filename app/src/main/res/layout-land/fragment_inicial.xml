@@ -11,53 +11,61 @@
             android:id="@+id/txtInicial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="185dp"
-            android:layout_marginBottom="132dp"
+            android:layout_marginTop="56dp"
             android:text="@string/modelo_inicial"
             android:textColor="#FFFFFF"
             android:textSize="32sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/togglebtnBrasil"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/txtInicialIngles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:layout_marginBottom="108dp"
+        android:text="@string/modelo_inicialIng"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/togglebtnBrasil"
+            app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.159" />
+
         <ToggleButton
             android:id="@+id/togglebtnBrasil"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="250dp"
-            android:background="@drawable/toggle_selector"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="151dp"
+            android:layout_marginEnd="84dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/brazil"
             android:textOff=""
             android:textOn=""
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtInicial" />
-
-        <ToggleButton
-            android:id="@+id/togglebtnEspanhol"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="45dp"
-            android:background="@drawable/toggle_selector"
-            android:textOff=""
-            android:textOn=""
-            app:layout_constraintBaseline_toBaselineOf="@+id/togglebtnBrasil"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/togglebtnEua" />
+            app:layout_constraintTop_toBottomOf="@+id/txtInicial"
+            app:layout_constraintVertical_bias="0.496" />
 
         <ToggleButton
             android:id="@+id/togglebtnEua"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="41dp"
-            android:layout_marginEnd="225dp"
-            android:background="@drawable/toggle_selector"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginEnd="163dp"
+            android:layout_marginBottom="100dp"
+            android:background="@drawable/kingdom"
             android:textOff=""
             android:textOn=""
-            app:layout_constraintBaseline_toBaselineOf="@+id/togglebtnBrasil"
-            app:layout_constraintEnd_toStartOf="@+id/togglebtnEspanhol"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/togglebtnBrasil"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

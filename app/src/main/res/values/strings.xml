@@ -14,6 +14,22 @@
     <string name="menu_compartilhar">Compartilhar</string>
     <string name="menu_sobre">Sobre</string>
 
+    <!-- TELA DE ESCOLHA DE IDIOMA -->
+
     <string name="modelo_fragment">Fragmento Modelo</string>
-    <string name="modelo_inicial">Texto Inicial</string>
+    <string name="modelo_inicial">Escolha um idioma!</string>
+    <string name="modelo_inicialIng">Choose your language!</string>
+
+    <!-- TELA DE CATEGORIAS -->
+
+    <string name="txtCafe">CAFÉ</string>
+    <string name="txtBebidas">BEBIDAS</string>
+    <string name="txtHappyHour">HAPPYHOUR</string>
+    <string name="txtPratos">PRATOS</string>
+    <string name="txtBoutique">BOUTIQUE</string>
+    <string name="txtDoces">DOCES</string>
+    <string name="txtSalgados">SALGADOS</string>
+    <string name="txtIniciar">INICIAR</string>
+    <string name="txtVoltar">VOLTAR</string>
+
 </resources>

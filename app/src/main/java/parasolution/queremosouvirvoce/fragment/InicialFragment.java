@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -42,7 +41,7 @@ public class InicialFragment extends Fragment {
 
         togglebtnEua = view.findViewById(R.id.togglebtnEua);
         togglebtnBrasil = view.findViewById(R.id.togglebtnBrasil);
-        togglebtnEspanhol = view.findViewById(R.id.togglebtnEspanhol);
+        togglebtnEspanhol = view.findViewById(R.id.togglebtnBrasil);
 
         //codigo para o togglebutton
         // TODO Trocar o togglebutton para button normal
@@ -69,7 +68,7 @@ public class InicialFragment extends Fragment {
                 {
                     //chamando o proximo fragment
                     fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
+                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasTesteBFragment()).commit();
                     Toast.makeText(getContext(),"Brasil", Toast.LENGTH_LONG).show();
                 }
             }
@@ -82,7 +81,7 @@ public class InicialFragment extends Fragment {
                 {
                     //chamando o proximo fragment
                     fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
+                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasTesteBFragment()).commit();
                     Toast.makeText(getContext(),"Espanhol", Toast.LENGTH_LONG).show();
                 }
             }
