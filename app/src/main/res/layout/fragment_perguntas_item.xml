@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ModeloFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtPerguntaCerteza"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Inserir pergunta certeza aqui!!!"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ToggleButton
+            android:id="@+id/emote1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="ToggleButton"
+            app:layout_constraintStart_toStartOf="@id/txtPerguntaCerteza"
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+
+        <ToggleButton
+            android:id="@+id/emote2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="ToggleButton"
+            app:layout_constraintStart_toEndOf="@+id/emote1"
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+
+        <ToggleButton
+            android:id="@+id/emote3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="ToggleButton"
+            app:layout_constraintStart_toEndOf="@+id/emote2"
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+
+        <ToggleButton
+            android:id="@+id/emote4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="ToggleButton"
+            app:layout_constraintStart_toEndOf="@+id/emote3"
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+
+        <ToggleButton
+            android:id="@+id/emote5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="ToggleButton"
+            app:layout_constraintStart_toEndOf="@+id/emote4"
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtPerguntaIncerteza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Inserir pergunta incerteza aqui!!!"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ToggleButton
+                android:id="@+id/emote6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="ToggleButton"
+                app:layout_constraintStart_toStartOf="@id/txtPerguntaIncerteza"
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+
+            <ToggleButton
+                android:id="@+id/emote7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:text="ToggleButton"
+                app:layout_constraintStart_toEndOf="@+id/emote6"
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+
+            <ToggleButton
+                android:id="@+id/emote8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:text="ToggleButton"
+                app:layout_constraintStart_toEndOf="@+id/emote7"
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+
+            <ToggleButton
+                android:id="@+id/emote9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:text="ToggleButton"
+                app:layout_constraintStart_toEndOf="@+id/emote8"
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+
+            <ToggleButton
+                android:id="@+id/emote10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:text="ToggleButton"
+                app:layout_constraintStart_toEndOf="@+id/emote9"
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
