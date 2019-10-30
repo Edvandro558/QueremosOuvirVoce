@@ -19,22 +19,22 @@
        android:background="@android:color/white"
        android:layout_alignParentBottom="true"
        android:layout_width="match_parent"
-       android:layout_height="70dp">
+       android:layout_height="100dp">
 
       <ImageView
           android:id="@+id/btnVoltar"
-          android:layout_marginStart="25dp"
+          android:layout_marginStart="300dp"
           android:src="@drawable/ic_navigate_before_black_24dp"
-          android:layout_width="70dp"
-          android:layout_height="70dp"/>
+          android:layout_width="100dp"
+          android:layout_height="100dp"/>
 
       <ImageView
           android:id="@+id/btnProximo"
           android:layout_alignParentEnd="true"
-          android:layout_marginEnd="25dp"
+          android:layout_marginEnd="300dp"
           android:src="@drawable/ic_navigate_next_black_24dp"
-          android:layout_width="70dp"
-          android:layout_height="70dp"/>
+          android:layout_width="100dp"
+          android:layout_height="100dp"/>
 
    </RelativeLayout>
 

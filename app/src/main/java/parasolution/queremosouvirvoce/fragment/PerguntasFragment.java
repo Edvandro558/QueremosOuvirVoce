@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,14 +17,18 @@ import parasolution.queremosouvirvoce.R;
 import parasolution.queremosouvirvoce.adapter.PerguntasAdapter;
 import parasolution.queremosouvirvoce.model.PerguntasModel;
 
-public class PerguntasFragment extends Fragment {
+public class PerguntasFragment extends Fragment implements View.OnClickListener {
 
     View view;
+    ImageView btnVoltar;
+    ImageView btnProximo;
 
     ArrayList<PerguntasModel> perguntasModelLista;
     private RecyclerView recyclerView;
     private PerguntasAdapter perguntasAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
+    private int counter = 0;
 
     public PerguntasFragment() {
     }
@@ -40,6 +46,9 @@ public class PerguntasFragment extends Fragment {
 
         view =  inflater.inflate(R.layout.fragment_perguntas, container, false);
 
+        btnVoltar = view.findViewById(R.id.btnVoltar);
+        btnProximo = view.findViewById(R.id.btnProximo);
+
         perguntasModelLista = new ArrayList<>();
         perguntasModelLista.add(new PerguntasModel("Pergunta Certeza1","Pergunta Incerteza1"));
         perguntasModelLista.add(new PerguntasModel("Pergunta Certeza2","Pergunta Incerteza2"));
@@ -47,7 +56,7 @@ public class PerguntasFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.rv_perguntas);
         recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         perguntasAdapter = new PerguntasAdapter(perguntasModelLista);
 
         recyclerView.setLayoutManager(layoutManager);
@@ -104,6 +113,9 @@ public class PerguntasFragment extends Fragment {
             }
         });
 
+       btnVoltar.setOnClickListener(this);
+       btnProximo.setOnClickListener(this);
+
         return view;
     }
 
@@ -114,4 +126,35 @@ public class PerguntasFragment extends Fragment {
     }
 
 
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnProximo:
+                if(counter < perguntasAdapter.getItemCount()) {
+                    plusCounter();
+
+                }
+                Toast.makeText(getContext(), "counter: "+counter, Toast.LENGTH_LONG).show();
+                break;
+            case R.id.btnVoltar:
+                if(counter > 0) {
+                    minusCounter();
+
+                }
+                Toast.makeText(getContext(), "counter: "+counter, Toast.LENGTH_LONG).show();
+                break;
+        }
+
+    }
+
+    private void plusCounter(){
+        counter++;
+        recyclerView.smoothScrollToPosition(counter);
+    }
+
+    private void minusCounter(){
+        counter--;
+        recyclerView.smoothScrollToPosition(counter);
+    }
 }

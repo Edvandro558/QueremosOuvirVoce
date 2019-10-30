@@ -38,7 +38,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view =  inflater.inflate(R.layout.fragment_categorias_teste_b, container, false);
+        view =  inflater.inflate(R.layout.fragment_categorias, container, false);
 
         cv_cafe = view.findViewById(R.id.cv_cafe);
         cv_bebidas = view.findViewById(R.id.cv_bebidas);
