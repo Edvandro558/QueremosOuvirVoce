@@ -68,7 +68,7 @@ public class InicialFragment extends Fragment {
                 {
                     //chamando o proximo fragment
                     fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasTesteBFragment()).commit();
+                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
                     Toast.makeText(getContext(),"Brasil", Toast.LENGTH_LONG).show();
                 }
             }
@@ -80,8 +80,8 @@ public class InicialFragment extends Fragment {
                 if(((ToggleButton)v).isChecked())
                 {
                     //chamando o proximo fragment
-                    fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasTesteBFragment()).commit();
+                    fragmentTransaction = getFragmentManager();                         //CategoriasTesteBFragment
+                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
                     Toast.makeText(getContext(),"Espanhol", Toast.LENGTH_LONG).show();
                 }
             }
