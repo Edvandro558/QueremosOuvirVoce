@@ -27,15 +27,15 @@
             android:layout_marginTop="16dp"
             android:text="Inserir pergunta certeza aqui!!!"
             android:textColor="@android:color/black"
-            android:textSize="25sp"
+            android:textSize="40sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
             android:id="@+id/emote1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="ToggleButton"
@@ -44,8 +44,8 @@
 
         <ToggleButton
             android:id="@+id/emote2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="8dp"
             android:text="ToggleButton"
@@ -54,8 +54,8 @@
 
         <ToggleButton
             android:id="@+id/emote3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="8dp"
             android:text="ToggleButton"
@@ -64,8 +64,8 @@
 
         <ToggleButton
             android:id="@+id/emote4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="8dp"
             android:text="ToggleButton"
@@ -74,8 +74,8 @@
 
         <ToggleButton
             android:id="@+id/emote5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="8dp"
             android:text="ToggleButton"
@@ -106,15 +106,15 @@
                 android:layout_marginTop="16dp"
                 android:text="Inserir pergunta incerteza aqui!!!"
                 android:textColor="@android:color/black"
-                android:textSize="25sp"
+                android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ToggleButton
                 android:id="@+id/emote6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="ToggleButton"
@@ -123,8 +123,8 @@
 
             <ToggleButton
                 android:id="@+id/emote7"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="8dp"
                 android:text="ToggleButton"
@@ -133,8 +133,8 @@
 
             <ToggleButton
                 android:id="@+id/emote8"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="8dp"
                 android:text="ToggleButton"
@@ -143,8 +143,8 @@
 
             <ToggleButton
                 android:id="@+id/emote9"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="8dp"
                 android:text="ToggleButton"
@@ -153,8 +153,8 @@
 
             <ToggleButton
                 android:id="@+id/emote10"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginStart="8dp"
                 android:text="ToggleButton"

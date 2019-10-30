@@ -194,4 +194,5 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
     public int getItemCount() {
         return adapterPerguntasLista.size();
     }
+
 }
