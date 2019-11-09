@@ -32,4 +32,26 @@
     <string name="txtIniciar">INICIAR</string>
     <string name="txtVoltar">VOLTAR</string>
 
+    <!-- TELA PERGUNTAS FINAL -->
+    <string name="txtIndicacao">Blá Blá Blá</string>
+    <string name="txtCadastro">Blá Blá Blá</string>
+    <string name="btnSim">Sim</string>
+    <string name="btnNao">Não</string>
+
+    <!-- TELA FINAL -->
+    <string name="txtFinal">Blá Blá Blá</string>
+
+    <!--TELA CADASTRO CLIENTE -->
+    <string name="txtHintNome">Nome:</string>
+    <string name="txtHintEmail">E-mail:</string>
+    <string name="txtHintNascimento">Data de Nascimento:</string>
+    <string name="txtHintFone">Telefone: (Opcional)</string>
+    <string name="txtNotificacao">Gostaria de ser notificado sobre nossas promoções?</string>
+    <string name="txtHintMensagem">(Opcional) Deixe sua sugestão, dúvida ou reclamaçao.</string>
+    <string name="btnEnviar">Enviar</string>
+    <string name="btnCancelar">Cancelar</string>
+    <string name="btnLimpar">Limpar</string>
+    <string name="rbNao">Não</string>
+    <string name="rbSim">Sim</string>
+
 </resources>

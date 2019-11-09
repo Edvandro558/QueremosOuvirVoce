@@ -3,8 +3,9 @@ package parasolution.queremosouvirvoce.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,10 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import parasolution.queremosouvirvoce.R;
-import parasolution.queremosouvirvoce.model.PerguntasModel;
+import parasolution.queremosouvirvoce.model.Perguntas;
 
 public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.PerguntasViewHolder> {
-    private ArrayList<PerguntasModel> adapterPerguntasLista;
+    private ArrayList<Perguntas> adapterPerguntasLista;
     private OnItemClickListener adapterListener;
 
     public interface OnItemClickListener{
@@ -29,6 +30,7 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
         void onEmote8Click(int position);
         void onEmote9Click(int position);
         void onEmote10Click(int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){
@@ -36,57 +38,65 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
     }
 
     public static class PerguntasViewHolder extends RecyclerView.ViewHolder{
-        public TextView txtPerguntaCerteza;
-        public TextView txtPerguntaIncerteza;
-        public ToggleButton emote1;
-        public ToggleButton emote2;
-        public ToggleButton emote3;
-        public ToggleButton emote4;
-        public ToggleButton emote5;
-        public ToggleButton emote6;
-        public ToggleButton emote7;
-        public ToggleButton emote8;
-        public ToggleButton emote9;
-        public ToggleButton emote10;
+        private TextView txtPerguntaCerteza;
+        private TextView txtPerguntaIncerteza;
+        private RadioGroup radioGroupCerteza;
+        private RadioGroup radioGroupIncerteza;
+        private RadioButton rbMuitoInsatisfeito;
+        private RadioButton rbInsatisfeito;
+        private RadioButton rbNeutro;
+        private RadioButton rbSatisfeito;
+        private RadioButton rbMuitoSatisfeito;
+        private RadioButton rbNaoPrecisa;
+        private RadioButton rbPrecisaPouco;
+        private RadioButton rbTalvez;
+        private RadioButton rbPrecisa;
+        private RadioButton rbPrecisaMuito;
 
         public PerguntasViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
+
             txtPerguntaCerteza = itemView.findViewById(R.id.txtPerguntaCerteza);
             txtPerguntaIncerteza = itemView.findViewById(R.id.txtPerguntaIncerteza);
-            emote1 = itemView.findViewById(R.id.emote1);
-            emote2 = itemView.findViewById(R.id.emote2);
-            emote3 = itemView.findViewById(R.id.emote3);
-            emote4 = itemView.findViewById(R.id.emote4);
-            emote5 = itemView.findViewById(R.id.emote5);
-            emote6 = itemView.findViewById(R.id.emote6);
-            emote7 = itemView.findViewById(R.id.emote7);
-            emote8 = itemView.findViewById(R.id.emote8);
-            emote9 = itemView.findViewById(R.id.emote9);
-            emote10 = itemView.findViewById(R.id.emote10);
+            radioGroupCerteza = itemView.findViewById(R.id.radioGroupCerteza);
+            radioGroupIncerteza = itemView.findViewById(R.id.radioGroupIncerteza);
+            rbMuitoInsatisfeito =itemView.findViewById(R.id.rbMuitoInsatisfeito);
+            rbInsatisfeito =itemView.findViewById(R.id.rbInsatisfeito);
+            rbNeutro =itemView.findViewById(R.id.rbNeutro);
+            rbSatisfeito =itemView.findViewById(R.id.rbSatisfeito);
+            rbMuitoSatisfeito =itemView.findViewById(R.id.rbMuitoSatisfeito);
+            rbNaoPrecisa =itemView.findViewById(R.id.rbNaoPrecisa);
+            rbPrecisaPouco =itemView.findViewById(R.id.rbPrecisaPouco);
+            rbTalvez =itemView.findViewById(R.id.rbTalvez);
+            rbPrecisa =itemView.findViewById(R.id.rbPrecisa);
+            rbPrecisaMuito =itemView.findViewById(R.id.rbPrecisaMuito);
 
-            emote1.setOnClickListener(new View.OnClickListener() {
+
+            rbMuitoInsatisfeito.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote1Click(position);
+                        if (listener != null) {
+                            int position = getAdapterPosition();
+                            if (position != RecyclerView.NO_POSITION) {
+                                listener.onEmote1Click(position);
+                            }
                         }
-                    }
                 }
             });
 
-            emote2.setOnClickListener(new View.OnClickListener() {
+            rbInsatisfeito.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote2Click(position);
+                    if (listener != null) {
+                            int position = getAdapterPosition();
+                            if (position != RecyclerView.NO_POSITION) {
+                                listener.onEmote2Click(position);
+                            }
                         }
-                    }
                 }
-            });emote3.setOnClickListener(new View.OnClickListener() {
+            });
+
+            rbNeutro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
@@ -96,7 +106,9 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
                         }
                     }
                 }
-            });emote4.setOnClickListener(new View.OnClickListener() {
+            });
+
+            rbSatisfeito.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
@@ -106,57 +118,9 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
                         }
                     }
                 }
-            });emote5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote5Click(position);
-                        }
-                    }
-                }
-            });emote6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote5Click(position);
-                        }
-                    }
-                }
-            });emote7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote5Click(position);
-                        }
-                    }
-                }
-            });emote8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote5Click(position);
-                        }
-                    }
-                }
-            });emote9.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(listener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            listener.onEmote5Click(position);
-                        }
-                    }
-                }
-            });emote10.setOnClickListener(new View.OnClickListener() {
+            });
+
+            rbMuitoSatisfeito.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(listener != null){
@@ -167,11 +131,72 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
                     }
                 }
             });
+
+            rbNaoPrecisa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onEmote6Click(position);
+                        }
+                    }
+                }
+            });
+
+            rbPrecisaPouco.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onEmote7Click(position);
+                        }
+                    }
+                }
+            });
+
+            rbTalvez.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onEmote8Click(position);
+                        }
+                    }
+                }
+            });
+
+            rbPrecisa.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onEmote9Click(position);
+                        }
+                    }
+                }
+            });
+
+            rbPrecisaMuito.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            listener.onEmote10Click(position);
+                        }
+                    }
+                }
+            });
+
         }
     }
 
-    public PerguntasAdapter(ArrayList<PerguntasModel> perguntasModelLista){
-        adapterPerguntasLista = perguntasModelLista;
+    public PerguntasAdapter(ArrayList<Perguntas> perguntasLista){
+        adapterPerguntasLista = perguntasLista;
     }
 
     @NonNull
@@ -184,10 +209,13 @@ public class PerguntasAdapter extends RecyclerView.Adapter<PerguntasAdapter.Perg
 
     @Override
     public void onBindViewHolder(@NonNull PerguntasViewHolder holder, int position) {
-        PerguntasModel perguntaAtual = adapterPerguntasLista.get(position);
+        Perguntas perguntaAtual = adapterPerguntasLista.get(position);
 
-        holder.txtPerguntaCerteza.setText(perguntaAtual.getTxt_pergunta_certeza());
-        holder.txtPerguntaIncerteza.setText(perguntaAtual.getTxt_pergunta_incerteza());
+            holder.txtPerguntaCerteza.setText(perguntaAtual.getPerguntaCerteza());
+            holder.txtPerguntaIncerteza.setText(perguntaAtual.getPerguntaIncerteza());
+            holder.radioGroupCerteza.clearCheck();
+            holder.radioGroupIncerteza.clearCheck();
+
     }
 
     @Override

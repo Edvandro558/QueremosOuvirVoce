@@ -1,26 +1,26 @@
 package parasolution.queremosouvirvoce.datamodel;
 
-public class PerguntasDataModel {
+public class  PerguntasDataModel {
 
-    private final static String TABELA = "tblPerguntas";
+    private final static String TABELA = "perguntas";
 
     private final static String id = "id";
-    private final static String perguntas = "materia";
+    private final static String categoria = "categoria";
+    private final static String perguntaCerteza = "perguntaCerteza";
+    private final static String perguntaIncerteza = "perguntaIncerteza";
 
-    private static String queryCriarTabelaPerguntas = "";
+    private static String queryCriarTabela = "";
 
-    // Criar dinamicamente uma query SQL para criar
-    // a tabela Média Escolar no Banco de Dados
+    public static String criarTabelaPerguntas(){
+        queryCriarTabela = "CREATE TABLE "+TABELA;
+        queryCriarTabela += " (";
+        queryCriarTabela += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
+        queryCriarTabela += perguntaCerteza + " TEXT, ";
+        queryCriarTabela += perguntaIncerteza + " TEXT, ";
+        queryCriarTabela += categoria + " TEXT ";
+        queryCriarTabela += " )";
 
-    public static String criarTabelaPerguntas() {
-
-        queryCriarTabelaPerguntas = "CREATE TABLE " + TABELA;
-        queryCriarTabelaPerguntas += "(";
-        queryCriarTabelaPerguntas += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
-        queryCriarTabelaPerguntas += perguntas + " TEXT ";
-        queryCriarTabelaPerguntas += ")";
-
-        return queryCriarTabelaPerguntas;
+        return queryCriarTabela;
     }
 
     public static String getTABELA() {
@@ -31,15 +31,23 @@ public class PerguntasDataModel {
         return id;
     }
 
-    public static String getPerguntas() {
-        return perguntas;
+    public static String getCategoria() {
+        return categoria;
     }
 
-    public static String getQueryCriarTabelaPerguntas() {
-        return queryCriarTabelaPerguntas;
+    public static String getPerguntaCerteza() {
+        return perguntaCerteza;
     }
 
-    public static void setQueryCriarTabelaPerguntas(String queryCriarTabelaPerguntas) {
-        PerguntasDataModel.queryCriarTabelaPerguntas = queryCriarTabelaPerguntas;
+    public static String getPerguntaIncerteza() {
+        return perguntaIncerteza;
+    }
+
+    public static String getQueryCriarTabela() {
+        return queryCriarTabela;
+    }
+
+    public static void setQueryCriarTabela(String queryCriarTabela) {
+        PerguntasDataModel.queryCriarTabela = queryCriarTabela;
     }
 }

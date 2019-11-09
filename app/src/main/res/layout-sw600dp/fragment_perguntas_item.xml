@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ModeloFragment">
+    tools:context=".fragment.PerguntasFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_marginTop="5dp"
@@ -32,55 +32,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ToggleButton
-            android:id="@+id/emote1"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="ToggleButton"
+        <RadioGroup
+            android:id="@+id/radioGroupCerteza"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="@id/txtPerguntaCerteza"
-            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ToggleButton
-            android:id="@+id/emote2"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:text="ToggleButton"
-            app:layout_constraintStart_toEndOf="@+id/emote1"
-            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+            <RadioButton
+                android:id="@+id/rbMuitoInsatisfeito"
+                android:button="@drawable/very_dissatisfied_selector"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <ToggleButton
-            android:id="@+id/emote3"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:text="ToggleButton"
-            app:layout_constraintStart_toEndOf="@+id/emote2"
-            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+            <RadioButton
+                android:id="@+id/rbInsatisfeito"
+                android:button="@drawable/dissatisfied_selector"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <ToggleButton
-            android:id="@+id/emote4"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:text="ToggleButton"
-            app:layout_constraintStart_toEndOf="@+id/emote3"
-            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+            <RadioButton
+                android:id="@+id/rbNeutro"
+                android:button="@drawable/neutral_selector"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-        <ToggleButton
-            android:id="@+id/emote5"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="8dp"
-            android:text="ToggleButton"
-            app:layout_constraintStart_toEndOf="@+id/emote4"
-            app:layout_constraintTop_toBottomOf="@+id/txtPerguntaCerteza" />
+            <RadioButton
+                android:id="@+id/rbSatisfeito"
+                android:button="@drawable/satisfied_selector"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:id="@+id/rbMuitoSatisfeito"
+                android:button="@drawable/very_satisfied_selector"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,55 +109,49 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ToggleButton
-                android:id="@+id/emote6"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="ToggleButton"
+            <RadioGroup
+                android:id="@+id/radioGroupIncerteza"
+                android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="@id/txtPerguntaIncerteza"
-                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-            <ToggleButton
-                android:id="@+id/emote7"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:text="ToggleButton"
-                app:layout_constraintStart_toEndOf="@+id/emote6"
-                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+                <RadioButton
+                    android:id="@+id/rbNaoPrecisa"
+                    android:button="@drawable/very_dissatisfied_selector"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            <ToggleButton
-                android:id="@+id/emote8"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:text="ToggleButton"
-                app:layout_constraintStart_toEndOf="@+id/emote7"
-                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+                <RadioButton
+                    android:id="@+id/rbPrecisaPouco"
+                    android:button="@drawable/dissatisfied_selector"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            <ToggleButton
-                android:id="@+id/emote9"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:text="ToggleButton"
-                app:layout_constraintStart_toEndOf="@+id/emote8"
-                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+                <RadioButton
+                    android:id="@+id/rbTalvez"
+                    android:button="@drawable/neutral_selector"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-            <ToggleButton
-                android:id="@+id/emote10"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="8dp"
-                android:text="ToggleButton"
-                app:layout_constraintStart_toEndOf="@+id/emote9"
-                app:layout_constraintTop_toBottomOf="@+id/txtPerguntaIncerteza" />
+                <RadioButton
+                    android:id="@+id/rbPrecisa"
+                    android:button="@drawable/satisfied_selector"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <RadioButton
+                    android:id="@+id/rbPrecisaMuito"
+                    android:button="@drawable/very_satisfied_selector"
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical"
-    tools:context=".fragment.ModeloFragment">
+    tools:context=".fragment.CategoriasFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -333,7 +333,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_metodos"
+                android:id="@+id/cv_boutique"
                 android:layout_gravity="center_vertical"
                 android:layout_width="125dp"
                 app:cardCornerRadius="16dp"
