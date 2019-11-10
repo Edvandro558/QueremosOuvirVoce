@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:padding="16dp"
+    tools:context=".fragment.ModeloFragment">
+
+    <EditText
+        android:id="@+id/editNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/gillsam"
+        android:hint="@string/txtHintNome"
+        android:padding="8dp"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/gillsam"
+        android:hint="@string/txtHintEmail"
+        android:padding="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNome"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <com.santalu.maskedittext.MaskEditText
+        android:id="@+id/editNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/gillsam"
+        android:hint="@string/txtHintNascimento"
+        android:inputType="date"
+        app:met_mask="##/##/####"
+        android:padding="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <com.santalu.maskedittext.MaskEditText
+        android:id="@+id/editFone"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/gillsam"
+        android:hint="@string/txtHintFone"
+        android:padding="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:inputType="phone"
+        app:met_mask="(##) ##### ####"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNascimento"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <TextView
+        android:id="@+id/txtNotificacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/txtNotificacao"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editFone"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupNotificacao"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNotificacao"
+        app:layout_constraintVertical_bias="0.0" >
+
+    <RadioButton
+        android:id="@+id/rbSim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/rbSim"
+        android:checked="true"
+        android:textColor="@android:color/white" />
+
+        <RadioButton
+            android:id="@+id/rbNao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@string/rbNao"
+            android:textColor="@android:color/white" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editMensagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:layout_margin="8dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/gillsam"
+        android:hint="@string/txtHintMensagem"
+        android:padding="8dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="20sp"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupNotificacao"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/oval"
+        android:fontFamily="@font/gillsam"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="@string/btnCancelar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMensagem"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnLimpar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/oval"
+        android:fontFamily="@font/gillsam"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="@string/btnLimpar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCancelar"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editMensagem"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/oval"
+        android:fontFamily="@font/gillsam"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="@string/btnEnviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelar"
+        app:layout_constraintTop_toBottomOf="@+id/editMensagem"
+        app:layout_constraintVertical_bias="0.5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

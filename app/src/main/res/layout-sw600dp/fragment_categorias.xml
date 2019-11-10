@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical"
-    tools:context=".fragment.ModeloFragment">
+    tools:context=".fragment.CategoriasFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -14,11 +14,11 @@
 
         <TextView
             android:textColor="@android:color/white"
-            android:text="Escolha as Categorias:"
+            android:text="@string/txtCategorias"
             android:layout_gravity="center_horizontal|center_vertical"
             android:textStyle="bold"
             android:fontFamily="@font/gillsam"
-            android:textSize="40sp"
+            android:textSize="50sp"
             android:textAlignment="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -36,7 +36,6 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -45,11 +44,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_cafe"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginRight="5dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -57,10 +56,9 @@
 
                     <ImageView
                         android:id="@+id/imgCafe"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-
                         android:src="@drawable/cafe"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +70,7 @@
                         android:layout_below="@id/imgCafe"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtCafe"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgCafe" />
@@ -85,10 +83,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_bebidas"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -96,8 +95,8 @@
 
                     <ImageView
                         android:id="@+id/imgBebidas"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/bebidas"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtBebidas"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgBebidas" />
@@ -122,13 +121,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_happyhour"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -136,8 +133,8 @@
 
                     <ImageView
                         android:id="@+id/imgHappyhour"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/happyhour"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +146,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtHappyHour"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgHappyhour" />
@@ -162,11 +159,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_pratos"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginRight="5dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -174,8 +171,8 @@
 
                     <ImageView
                         android:id="@+id/imgPratos"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/pratos"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -187,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtPratos"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgPratos" />
@@ -198,12 +195,13 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cv_metodos"
+                android:id="@+id/cv_boutique"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -211,8 +209,8 @@
 
                     <ImageView
                         android:id="@+id/imgBoutique"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/boutique"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -224,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtBoutique"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgBoutique" />
@@ -238,7 +236,6 @@
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_marginBottom="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
@@ -248,11 +245,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_voltar"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginRight="5dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -260,10 +257,10 @@
 
                     <ImageView
                         android:id="@+id/imgVoltar"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/ic_navigate_before_black_24dp"
+                        android:src="@drawable/ic_navigate_before_brow_70dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -273,7 +270,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtVoltar"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgVoltar" />
@@ -286,10 +283,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_doces"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -297,8 +295,8 @@
 
                     <ImageView
                         android:id="@+id/imgDoces"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/doces"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -310,7 +308,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtDoces"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgDoces" />
@@ -324,11 +322,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_salgados"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginLeft="5dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -336,8 +334,8 @@
 
                     <ImageView
                         android:id="@+id/imgSalgados"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
                         android:src="@drawable/salgados"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -349,7 +347,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtSalgados"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgSalgados" />
@@ -363,11 +361,11 @@
 
                 android:id="@+id/cv_iniciar"
                 android:layout_gravity="center_vertical"
-                android:layout_width="125dp"
+                android:layout_width="180dp"
                 app:cardCornerRadius="16dp"
-                android:layout_marginLeft="5dp"
-                app:cardElevation="8dp"
-                android:layout_height="125dp">
+                android:layout_margin="5dp"
+                app:cardElevation="4dp"
+                android:layout_height="180dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -375,10 +373,10 @@
 
                     <ImageView
                         android:id="@+id/imgIniciar"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/ic_navigate_next_black_24dp"
+                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -388,7 +386,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/txtIniciar"
-                        android:textSize="18sp"
+                        android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imgIniciar" />

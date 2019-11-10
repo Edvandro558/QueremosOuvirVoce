@@ -1,6 +1,6 @@
 package parasolution.queremosouvirvoce.datamodel;
 
-public class CadCliDataModel {
+public class ClienteDataModel {
 
     private final static String TABELA = "cliente";
 
@@ -9,11 +9,12 @@ public class CadCliDataModel {
     private final static String nascimento = "nascimento";
     private final static String telefone = "telefone";
     private final static String email = "email";
-    private final static String notificao = "notificao";
+    private final static String notificacao = "notificacao";
+    private final static String mensagem = "mensagem";
 
     private static String queryCriarTabela = "";
 
-    public static String criarTabela() {
+    public static String criarTabelaCliente() {
 
         queryCriarTabela = "CREATE TABLE " + TABELA;
         queryCriarTabela += "(";
@@ -22,12 +23,12 @@ public class CadCliDataModel {
         queryCriarTabela += nascimento + " TEXT,";
         queryCriarTabela += telefone + " TEXT,";
         queryCriarTabela += email + " TEXT,";
-        queryCriarTabela += notificao + " TEXT "; //ERA INTEGER NOT NULL
+        queryCriarTabela += mensagem + " TEXT,";
+        queryCriarTabela += notificacao + " TEXT "; //ERA INTEGER NOT NULL
         queryCriarTabela += ")";
 
         return queryCriarTabela;
     }
-
 
     public static String getTABELA() {
         return TABELA;
@@ -53,8 +54,12 @@ public class CadCliDataModel {
         return email;
     }
 
-    public static String getNotificao() {
-        return notificao;
+    public static String getNotificacao() {
+        return notificacao;
+    }
+
+    public static String getMensagem() {
+        return mensagem;
     }
 
     public static String getQueryCriarTabela() {
@@ -62,6 +67,6 @@ public class CadCliDataModel {
     }
 
     public static void setQueryCriarTabela(String queryCriarTabela) {
-        CadCliDataModel.queryCriarTabela = queryCriarTabela;
+        ClienteDataModel.queryCriarTabela = queryCriarTabela;
     }
 }

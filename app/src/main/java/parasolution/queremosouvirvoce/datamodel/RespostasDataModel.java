@@ -1,15 +1,15 @@
 package parasolution.queremosouvirvoce.datamodel;
 
 public class RespostasDataModel {
-    private final static String TABELA = "tblRespostas";
+    private final static String TABELA = "respostas";
 
     private final static String id = "id";
-    private final static String dataRes = "dataRes";
+    private final static String dataResposta = "dataResposta";
     private final static String mi = "mi";
     private final static String lambda = "lambda";
     private final static String grupo = "grupo";
     private final static String periodo = "periodo";
-    private final static String idPer = "idPer";
+    private final static String idPergunta = "idPergunta";
 
 
     private static String queryCriarTabelaRespostas = "";
@@ -20,12 +20,13 @@ public class RespostasDataModel {
         queryCriarTabelaRespostas = "CREATE TABLE " + TABELA;
         queryCriarTabelaRespostas += "(";
         queryCriarTabelaRespostas += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
-        queryCriarTabelaRespostas += dataRes + " TEXT, ";
+        queryCriarTabelaRespostas += dataResposta + " TEXT, ";
         queryCriarTabelaRespostas += mi + " REAL, ";
         queryCriarTabelaRespostas += lambda + " REAL, ";
         queryCriarTabelaRespostas += grupo + " TEXT, ";
         queryCriarTabelaRespostas += periodo + " REAL, ";
-        queryCriarTabelaRespostas += idPer + " INTEGER , FOREIGN KEY (idPer) REFERENCES tblPerguntas (id)); ";
+        queryCriarTabelaRespostas += idPergunta + " INTEGER, FOREIGN KEY (" + RespostasDataModel.getId() + ") REFERENCES " +
+                PerguntasDataModel.getTABELA() + "(" + PerguntasDataModel.getId() + ")" + "ON DELETE CASCADE";
         queryCriarTabelaRespostas += ")";
 
         return queryCriarTabelaRespostas;
@@ -39,8 +40,8 @@ public class RespostasDataModel {
         return id;
     }
 
-    public static String getDataRes() {
-        return dataRes;
+    public static String getDataResposta() {
+        return dataResposta;
     }
 
     public static String getMi() {
@@ -59,8 +60,8 @@ public class RespostasDataModel {
         return periodo;
     }
 
-    public static String getIdPer() {
-        return idPer;
+    public static String getIdPergunta() {
+        return idPergunta;
     }
 
     public static String getQueryCriarTabelaRespostas() {

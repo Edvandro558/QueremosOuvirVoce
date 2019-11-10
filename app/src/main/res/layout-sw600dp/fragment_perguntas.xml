@@ -3,39 +3,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.ModeloFragment">
+    tools:context=".fragment.PerguntasFragment">
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rv_perguntas"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_marginBottom="70dp"
-       android:background="@color/colorPrimaryOrange"
+       android:background="@color/colorBackground"
        android:padding="4dp"
        android:scrollbars="vertical" />
 
-   <RelativeLayout
-       android:background="@android:color/white"
+  <androidx.cardview.widget.CardView
+       app:cardBackgroundColor="@android:color/white"
+      app:cardCornerRadius="40dp"
        android:layout_alignParentBottom="true"
-       android:layout_width="match_parent"
-       android:layout_height="100dp">
+      app:cardElevation="4dp"
+       android:layout_centerInParent="true"
+      android:layout_marginBottom="100dp"
+       android:layout_width="450dp"
+       android:layout_height="80dp">
 
-      <ImageView
-          android:id="@+id/btnVoltar"
-          android:layout_marginStart="300dp"
-          android:src="@drawable/ic_navigate_before_black_24dp"
-          android:layout_width="100dp"
-          android:layout_height="100dp"/>
+      <androidx.cardview.widget.CardView
+          app:cardCornerRadius="50dp"
+          app:cardElevation="8dp"
+          android:layout_marginStart="375dp"
+          android:layout_gravity="center_vertical"
+          android:layout_width="70dp"
+          android:layout_height="70dp">
 
-      <ImageView
+          <FrameLayout
+              android:background="@drawable/oval2"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+      <ImageButton
           android:id="@+id/btnProximo"
-          android:layout_alignParentEnd="true"
-          android:layout_marginEnd="300dp"
-          android:src="@drawable/ic_navigate_next_black_24dp"
-          android:layout_width="100dp"
-          android:layout_height="100dp"/>
+          android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+          android:background="@drawable/oval2"
+          android:layout_gravity="center"
+          android:layout_width="70dp"
+          android:layout_height="70dp"/>
 
-   </RelativeLayout>
+          </FrameLayout>
+      </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="50dp"
+        app:cardElevation="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="70dp"
+        android:layout_height="70dp">
+
+        <FrameLayout
+            android:background="@drawable/oval2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+      <ImageButton
+          android:id="@+id/btnVoltar"
+          android:background="@drawable/oval2"
+          android:layout_gravity="center"
+          android:src="@drawable/ic_navigate_before_brow_70dp"
+          android:layout_width="70dp"
+          android:layout_height="70dp"/>
+
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+   </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

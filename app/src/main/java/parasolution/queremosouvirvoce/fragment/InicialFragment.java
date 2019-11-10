@@ -41,7 +41,6 @@ public class InicialFragment extends Fragment {
 
         togglebtnEua = view.findViewById(R.id.togglebtnEua);
         togglebtnBrasil = view.findViewById(R.id.togglebtnBrasil);
-        togglebtnEspanhol = view.findViewById(R.id.togglebtnBrasil);
 
         //codigo para o togglebutton
         // TODO Trocar o togglebutton para button normal
@@ -70,19 +69,6 @@ public class InicialFragment extends Fragment {
                     fragmentTransaction = getFragmentManager();                                 // era CategoriasTesteBFragmen
                     fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
                     Toast.makeText(getContext(),"Brasil", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        togglebtnEspanhol.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(((ToggleButton)v).isChecked())
-                {
-                    //chamando o proximo fragment
-                    fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
-                    Toast.makeText(getContext(),"Espanhol", Toast.LENGTH_LONG).show();
                 }
             }
         });

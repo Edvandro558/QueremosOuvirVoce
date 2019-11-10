@@ -1,6 +1,6 @@
 package parasolution.queremosouvirvoce.model;
 
-public class CadCliModel {
+public class Cliente {
 
     private int id;
     private String nome;
@@ -8,7 +8,10 @@ public class CadCliModel {
     private String telefone;
     private String email;
     private String notificacao;
+    private String mensagem;
 
+    public Cliente() {
+    }
 
     public int getId() {
         return id;
@@ -56,5 +59,13 @@ public class CadCliModel {
 
     public void setNotificacao(String notificacao) {
         this.notificacao = notificacao;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
     }
 }
