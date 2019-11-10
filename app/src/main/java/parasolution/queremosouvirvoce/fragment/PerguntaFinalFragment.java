@@ -27,8 +27,8 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
     private View view;
     private Intent intent;
     private FragmentManager fragmentTransaction;
-    private RadioButton rbUm, rbDois, rbTres, rbQuatro, rbCinco, rbSeis, rbSete, rbOito, rbNove;
-    private Button btnSim, btnNao;
+    private RadioButton rbZero,rbUm, rbDois, rbTres, rbQuatro, rbCinco, rbSeis, rbSete, rbOito, rbNove, rbDez;
+    private Button btnSim, btnNao, btnCadastrado;
     private ImageView btnVoltar2, btnFim;
     private Respostas respostas;
     private ArrayList<Integer> idPerguntas;
@@ -53,8 +53,10 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
 
         btnSim = view.findViewById(R.id.btnSim);
         btnNao = view.findViewById(R.id.btnNao);
-        btnVoltar2 = view.findViewById(R.id.btnVoltar2);
-        btnFim = view.findViewById(R.id.btnFim);
+        btnCadastrado = view.findViewById(R.id.btnCadastrado);
+       // btnVoltar2 = view.findViewById(R.id.btnVoltar2);
+        //btnFim = view.findViewById(R.id.btnFim);
+        rbZero = view.findViewById(R.id.rbZero);
         rbUm = view.findViewById(R.id.rbUm);
         rbDois = view.findViewById(R.id.rbDois);
         rbTres = view.findViewById(R.id.rbTres);
@@ -64,11 +66,14 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         rbSete = view.findViewById(R.id.rbSete);
         rbOito = view.findViewById(R.id.rbOito);
         rbNove = view.findViewById(R.id.rbNove);
+        rbDez = view.findViewById(R.id.rbDez);
 
         btnSim.setOnClickListener(this);
+        btnCadastrado.setOnClickListener(this);
         btnNao.setOnClickListener(this);
-        btnVoltar2.setOnClickListener(this);
-        btnFim.setOnClickListener(this);
+       // btnVoltar2.setOnClickListener(this);
+        //btnFim.setOnClickListener(this);
+        rbZero.setOnClickListener(this);
         rbUm.setOnClickListener(this);
         rbDois.setOnClickListener(this);
         rbTres.setOnClickListener(this);
@@ -78,6 +83,7 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         rbSete.setOnClickListener(this);
         rbOito.setOnClickListener(this);
         rbNove.setOnClickListener(this);
+        rbDez.setOnClickListener(this);
 
         respostas = new Respostas();
         idPerguntas = new ArrayList<>();
@@ -105,9 +111,8 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnFim:
-                if(rbUm.isChecked()||rbDois.isChecked()||rbTres.isChecked()||rbQuatro.isChecked()||rbCinco.isChecked()||rbSeis.isChecked()||
-                        rbSete.isChecked()||rbOito.isChecked()||rbNove.isChecked()) {
+            case R.id.btnCadastrado:
+                if(checarRb()) {
 
                     contruirObjetos();
 
@@ -117,22 +122,36 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
                     Toast.makeText(getContext(),"Escolha Uma Alternativa!", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.btnVoltar2:
-                fragmentTransaction = getFragmentManager();
-                fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
-                break;
+         //   case R.id.btnVoltar2:
+           //     fragmentTransaction = getFragmentManager();
+            //    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
+            //    break;
             case R.id.btnSim:
-                if(rbUm.isChecked()||rbDois.isChecked()||rbTres.isChecked()||rbQuatro.isChecked()||rbCinco.isChecked()||rbSeis.isChecked()||
-                        rbSete.isChecked()||rbOito.isChecked()||rbNove.isChecked()) {
+                if(checarRb()) {
+
+                    contruirObjetos();
+
                     fragmentTransaction = getFragmentManager();
                     fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CadastroClienteFragment()).commit();
                 }else {
                     Toast.makeText(getContext(),"Escolha Uma Alternativa!", Toast.LENGTH_SHORT).show();
                 }
-
                 break;
+
             case R.id.btnNao:
-                Toast.makeText(getContext(),"teste btn "+v.getId(), Toast.LENGTH_SHORT).show();
+                if(checarRb()) {
+
+                    contruirObjetos();
+
+                    intent = new Intent(getActivity(), FinalActivity.class);
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(getContext(),"Escolha Uma Alternativa!", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            case R.id.rbZero:
+                respostas.setGrupos("Grupo 1");
                 break;
             case R.id.rbUm:
                 respostas.setGrupos("Grupo 1");
@@ -150,15 +169,18 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
                 respostas.setGrupos("Grupo 1");
                 break;
             case R.id.rbSeis:
-                respostas.setGrupos("Grupo 2");
+                respostas.setGrupos("Grupo 1");
                 break;
             case R.id.rbSete:
                 respostas.setGrupos("Grupo 2");
                 break;
             case R.id.rbOito:
-                respostas.setGrupos("Grupo 3");
+                respostas.setGrupos("Grupo 2");
                 break;
             case R.id.rbNove:
+                respostas.setGrupos("Grupo 3");
+                break;
+            case R.id.rbDez:
                 respostas.setGrupos("Grupo 3");
                 break;
         }
@@ -173,6 +195,16 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
             respostasController.salvar(respostas);
         }
 
+    }
+
+    private boolean checarRb(){
+        boolean sucesso = false;
+        if(rbZero.isChecked()||rbUm.isChecked()||rbDois.isChecked()||rbTres.isChecked()||rbQuatro.isChecked()||rbCinco.isChecked()||rbSeis.isChecked()||
+                rbSete.isChecked()||rbOito.isChecked()||rbNove.isChecked()||rbDez.isChecked()) {
+            sucesso = true;
+        }
+
+        return sucesso;
     }
 
 }

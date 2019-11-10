@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import parasolution.queremosouvirvoce.R;
+import parasolution.queremosouvirvoce.fragment.CadastroClienteFragment;
 import parasolution.queremosouvirvoce.fragment.InicialFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -102,14 +103,19 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_administrador) {
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
 
         } else if (id == R.id.nav_cadastro_cliente) {
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new CadastroClienteFragment()).commit();
 
         } else if (id == R.id.nav_perguntas) {
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
 
         } else if (id == R.id.nav_configuracoes) {
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
 
         } else if (id == R.id.nav_compartilhar) {
+            fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
 
         } else if (id == R.id.nav_sobre){
 

@@ -10,8 +10,10 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import parasolution.queremosouvirvoce.datamodel.ClienteDataModel;
 import parasolution.queremosouvirvoce.datamodel.PerguntasDataModel;
 import parasolution.queremosouvirvoce.datamodel.RespostasDataModel;
+import parasolution.queremosouvirvoce.model.Cliente;
 import parasolution.queremosouvirvoce.model.Perguntas;
 import parasolution.queremosouvirvoce.model.Respostas;
 
@@ -38,6 +40,7 @@ public class DataSource extends SQLiteOpenHelper {
 
             db.execSQL(PerguntasDataModel.criarTabelaPerguntas());
             db.execSQL(RespostasDataModel.criarTabelaRespostas());
+            db.execSQL(ClienteDataModel.criarTabelaCliente());
 
             Log.i("AVISO", "DB--->  GERAR TABELAS:");
         } catch (Exception e) {
@@ -186,8 +189,8 @@ public class DataSource extends SQLiteOpenHelper {
 
         ArrayList<Perguntas> perguntasLista = new ArrayList<>();
 
-        String sql = "SELECT * FROM " + PerguntasDataModel.getTABELA() + " WHERE "
-                + PerguntasDataModel.getCategoria() + " IN ("+categoria+" 'ambiente', 'atendimento') ORDER BY id DESC";
+        String sql = "SELECT * FROM " + PerguntasDataModel.getTABELA() + " WHERE " + PerguntasDataModel.getCategoria()
+                + " IN (" + categoria + " 'ambiente', 'atendimento') ORDER BY id DESC";
 
         cursor = db.rawQuery(sql,null);
 
@@ -239,6 +242,39 @@ public class DataSource extends SQLiteOpenHelper {
         cursor.close();
 
         return respostasLista;
+    }
+
+    //LISTAR (CIENTES)
+    public List<Cliente> getAllClientes(){
+
+        Cliente cliente;
+
+        List<Cliente> clienteLista = new ArrayList<>();
+
+        String sql = "SELECT * FROM " + ClienteDataModel.getTABELA() + " ORDER BY id";
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                cliente = new Cliente();
+
+                cliente.setId(cursor.getInt(cursor.getColumnIndex(ClienteDataModel.getId())));
+                cliente.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getNome())));
+                cliente.setEmail(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getEmail())));
+                cliente.setNascimento(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getNascimento())));
+                cliente.setTelefone(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getTelefone())));
+                cliente.setNotificacao(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getNotificacao())));
+                cliente.setMensagem(cursor.getString(cursor.getColumnIndex(ClienteDataModel.getMensagem())));
+
+
+                clienteLista.add(cliente);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return clienteLista;
     }
 
     //LISTAR(BUSCAR)
