@@ -74,7 +74,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
         switch (v.getId()){
             case R.id.cv_cafe:
                 if(cv_cafe.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_cafe.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_cafe.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     cafe = true;
                 }
                 else {
@@ -84,7 +84,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_bebidas:
                 if(cv_bebidas.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_bebidas.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_bebidas.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     bebidas = true;
                 }
                 else {
@@ -94,7 +94,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_happyhour:
                 if(cv_happyhour.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_happyhour.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_happyhour.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     happyhour = true;
                 }
                 else {
@@ -104,7 +104,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_pratos:
                 if(cv_pratos.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_pratos.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_pratos.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     pratos = true;
                 }
                 else {
@@ -114,7 +114,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_doces:
                 if(cv_doces.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_doces.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_doces.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     doces = true;
                 }
                 else {
@@ -124,7 +124,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_salgados:
                 if(cv_salgados.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_salgados.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_salgados.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     salgados = true;
                 }
                 else {
@@ -134,14 +134,14 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_voltar:
                 if(cv_voltar.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_voltar.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_voltar.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.content_fragment, new InicialFragment()).commit();
                 }
                 break;
             case R.id.cv_boutique:
                 if(cv_boutique.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_boutique.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_boutique.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     boutique = true;
                 }
                 else {
@@ -151,7 +151,7 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.cv_iniciar:
                 if(cv_iniciar.getCardBackgroundColor().getDefaultColor() == -1) {
-                    cv_iniciar.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+                    cv_iniciar.setCardBackgroundColor(Color.parseColor("#E04D00"));
                     adcionarLista();
 
                     PerguntasController perguntasController = new PerguntasController(context);

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".fragment.ModeloFragment">
+
+    <LinearLayout
+        android:background="@drawable/round_3"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="300dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/imglogo"
+            android:layout_width="match_parent"
+            android:layout_height="268dp"/>
+
+        <Button
+            android:id="@+id/btnRelatorios"
+            android:text="@string/btnRelatorios"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:fontFamily="@font/gillsam"
+            android:textSize="28sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:background="@drawable/custom_button2"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/admin_content_fragment"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

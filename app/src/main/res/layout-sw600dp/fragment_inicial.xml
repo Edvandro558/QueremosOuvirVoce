@@ -12,7 +12,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="250dp"
-        android:background="@drawable/dissatisfied_selector"
+        android:background="@drawable/selector_insatisfeito"
         android:textOff=""
         android:textOn=""
         app:layout_constraintBottom_toBottomOf="parent"

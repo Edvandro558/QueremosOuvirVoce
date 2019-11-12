@@ -59,7 +59,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/cafe"
+                        android:src="@drawable/imgcafe"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -98,7 +98,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/bebidas"
+                        android:src="@drawable/imgbebidas"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +136,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/happyhour"
+                        android:src="@drawable/imghappyhour"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -174,7 +174,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/pratos"
+                        android:src="@drawable/imgpratos"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -212,7 +212,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/boutique"
+                        android:src="@drawable/imgboutique"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -260,7 +260,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/ic_navigate_before_brow_70dp"
+                        android:src="@drawable/seta_esquerda_marrom"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -298,7 +298,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/doces"
+                        android:src="@drawable/imgdoces"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -337,7 +337,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/salgados"
+                        android:src="@drawable/imgsalgados"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -376,7 +376,7 @@
                         android:layout_width="130dp"
                         android:layout_height="130dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+                        android:src="@drawable/seta_direita_marrom"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

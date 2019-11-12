@@ -22,7 +22,7 @@
 
     <!-- TELA DE CATEGORIAS -->
 
-    <string name="txtCategorias">Escolha a(s) categoria(s):</string>
+    <string name="txtCategorias">Selecione as categorias que se referem aos produtos consumidos</string>
     <string name="txtCafe">CAFÉ</string>
     <string name="txtBebidas">BEBIDAS</string>
     <string name="txtHappyHour">HAPPYHOUR</string>
@@ -42,7 +42,7 @@
 
     <!-- TELA FINAL -->
     <string name="txtFinal">OBRIGADO!!!</string>
-    <string name="txtFina2">Sua Opnião é muito importante!</string>
+    <string name="txtFina2">Sua Opinião é muito importante!</string>
 
     <!--TELA CADASTRO CLIENTE -->
     <string name="txtHintNome">Nome:</string>
@@ -56,5 +56,14 @@
     <string name="btnLimpar">Limpar</string>
     <string name="rbNao">Não</string>
     <string name="rbSim">Sim</string>
+
+    <!-- TELA LOGIN -->
+    <string name="btnLogin">Login</string>
+    <string name="editUsusario">Usuário</string>
+    <string name="editSenha">Senha</string>
+
+    <!-- TELA ADMINISTRADOR -->
+    <string name="btnRelatorios">Relatórios</string>
+
 
 </resources>

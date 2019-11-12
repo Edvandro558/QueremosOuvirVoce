@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.LoginFragment">
+
+   <LinearLayout
+       android:background="@drawable/round_3"
+       android:orientation="vertical"
+       android:padding="16dp"
+       android:layout_gravity="center"
+       android:layout_width="400dp"
+       android:layout_height="600dp">
+
+       <ImageView
+           android:layout_gravity="center"
+           android:src="@drawable/imglogo"
+           android:layout_width="250dp"
+           android:layout_height="250dp"/>
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/txtInputUsuario"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColorHint="@color/colorPrimary"
+           app:boxStrokeColor="@color/colorPrimary"
+           app:counterMaxLength="15"
+           app:errorEnabled="true"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/gillsam"
+               android:hint="@string/editUsusario"
+               android:inputType="text"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="28sp"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/txtInputSenha"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:textColorHint="@color/colorPrimary"
+           app:boxStrokeColor="@color/colorPrimary"
+           app:counterMaxLength="15"
+           app:errorEnabled="true"
+           app:passwordToggleEnabled="true"
+           style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/gillsam"
+               android:hint="@string/editSenha"
+               android:inputType="textPassword"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="28sp" />
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <Button
+           android:id="@+id/btnLogIn"
+           android:text="@string/btnLogin"
+           android:fontFamily="@font/gillsam"
+           android:textColor="@android:color/white"
+           android:textSize="28sp"
+           android:layout_marginTop="4dp"
+           android:paddingTop="16dp"
+           android:paddingBottom="16dp"
+           android:textAllCaps="false"
+           android:background="@drawable/round"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+   </LinearLayout>
+
+</FrameLayout>

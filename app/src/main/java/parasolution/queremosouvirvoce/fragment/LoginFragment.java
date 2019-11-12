@@ -15,10 +15,12 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.regex.Pattern;
 
 import parasolution.queremosouvirvoce.R;
+import parasolution.queremosouvirvoce.controller.UsuarioController;
+import parasolution.queremosouvirvoce.model.Usuario;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^" + "(?=.*[a-zA-Z])" + "(?=\\S+$)" + ".{6,}" + "$");
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^" + "(?=.*[a-zA-Z])" + "(?=\\S+$)" + ".{4,}" + "$");
 
     View view;
     Context context;
@@ -59,6 +61,18 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             case R.id.btnLogIn:
                 if(!validarUsuario() | !validarSenha()){
                     return;
+                } else {
+                    Usuario usuario = new Usuario();
+                    UsuarioController usuarioController = new UsuarioController(context);
+                    usuario.setUsuario(txtInputUsuario.getEditText().getText().toString().trim());
+                    usuario.setSenha(txtInputSenha.getEditText().getText().toString().trim());
+
+                    if(usuarioController.validarLogin(usuario.getUsuario(), usuario.getSenha())) {
+                        //INICIAR PROXIMO ACTIVITY
+                        Toast.makeText(context, "LOGADO", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(context, "USUARIO OU SENHA INCORRETO", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 String input = "Usuário: " + txtInputUsuario.getEditText().getText().toString();
                 input += "\n";

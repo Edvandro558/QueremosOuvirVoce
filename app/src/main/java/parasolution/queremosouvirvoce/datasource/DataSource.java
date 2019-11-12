@@ -13,9 +13,11 @@ import java.util.List;
 import parasolution.queremosouvirvoce.datamodel.ClienteDataModel;
 import parasolution.queremosouvirvoce.datamodel.PerguntasDataModel;
 import parasolution.queremosouvirvoce.datamodel.RespostasDataModel;
+import parasolution.queremosouvirvoce.datamodel.UsuarioDataModel;
 import parasolution.queremosouvirvoce.model.Cliente;
 import parasolution.queremosouvirvoce.model.Perguntas;
 import parasolution.queremosouvirvoce.model.Respostas;
+import parasolution.queremosouvirvoce.model.Usuario;
 
 public class DataSource extends SQLiteOpenHelper {
     private static final String DB_NAME = "bdApp.sqlite";
@@ -41,6 +43,7 @@ public class DataSource extends SQLiteOpenHelper {
             db.execSQL(PerguntasDataModel.criarTabelaPerguntas());
             db.execSQL(RespostasDataModel.criarTabelaRespostas());
             db.execSQL(ClienteDataModel.criarTabelaCliente());
+            db.execSQL(UsuarioDataModel.criarTabelaUsuario());
 
             Log.i("AVISO", "DB--->  GERAR TABELAS:");
         } catch (Exception e) {
@@ -49,15 +52,16 @@ public class DataSource extends SQLiteOpenHelper {
 
         }
         popularTabelaPerguntas();
+        inserirAdministrador();
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       /* //alterar a versão ele apaga(DROP TABLE) as tabelas e cria novamente
-        db.execSQL("DROP TABLE IF EXISTS login;");
-        db.execSQL("DROP TABLE IF EXISTS cliente;");
+        //alterar a versão ele apaga(DROP TABLE) as tabelas e cria novamente
+        db.execSQL("DROP TABLE IF EXISTS " + UsuarioDataModel.getTABELA());
+        db.execSQL("DROP TABLE IF EXISTS " + ClienteDataModel.getTABELA());
         db.execSQL("DROP TABLE IF EXISTS " + PerguntasDataModel.getTABELA());
         db.execSQL("DROP TABLE IF EXISTS " + RespostasDataModel.getTABELA());
-        onCreate(db); */
+        onCreate(db);
 
     }
 
@@ -113,6 +117,26 @@ public class DataSource extends SQLiteOpenHelper {
         cv.put(PerguntasDataModel.getPerguntaIncerteza(),perguntas.getPerguntaIncerteza());
 
         db.insert(PerguntasDataModel.getTABELA(), null, cv);
+    }
+
+    //INSERIR USUARIO ADMINISTRADOR
+    private void inserirAdministrador(){
+        Usuario usuario = new Usuario("ADMIN", "admin", "admin");
+        adcionarAdministrador(usuario);
+    }
+
+    private boolean adcionarAdministrador(Usuario usuario) {
+        boolean sucesso = true;
+
+        ContentValues dados = new ContentValues();
+
+        dados.put(UsuarioDataModel.getNome(), usuario.getNome());
+        dados.put(UsuarioDataModel.getUsuario(), usuario.getUsuario());
+        dados.put(UsuarioDataModel.getSenha(), usuario.getSenha());
+
+        sucesso = insert(UsuarioDataModel.getTABELA(),dados);
+
+        return sucesso;
     }
 
     //INSERIR
@@ -279,14 +303,14 @@ public class DataSource extends SQLiteOpenHelper {
 
     //LISTAR(BUSCAR)
 
-    /*public List<LoginModel> getAllUsuarios() {
+    public List<Usuario> getAllUsuarios() {
 
-        LoginModel objLoginModel;
+        Usuario usuario;
 
         // TIPADA
-        List<LoginModel> lista = new ArrayList<>();
+        List<Usuario> usuariolista = new ArrayList<>();
 
-        String sql = "SELECT * FROM " + LoginDataModel.getTABELA();
+        String sql = "SELECT * FROM " + UsuarioDataModel.getTABELA();
 
         cursor = db.rawQuery(sql, null);
 
@@ -294,13 +318,14 @@ public class DataSource extends SQLiteOpenHelper {
 
             do {
 
-                objLoginModel = new LoginModel();
+                usuario = new Usuario();
 
-                objLoginModel.setId(cursor.getInt(cursor.getColumnIndex(LoginDataModel.getId())));//passa o  nome da coluna
-                objLoginModel.setUsuario(cursor.getString(cursor.getColumnIndex(LoginDataModel.getUsuario())));
-                objLoginModel.setSenha(cursor.getString(cursor.getColumnIndex(LoginDataModel.getSenha())));
+                usuario.setId(cursor.getInt(cursor.getColumnIndex(UsuarioDataModel.getId())));//passa o  nome da coluna
+                usuario.setUsuario(cursor.getString(cursor.getColumnIndex(UsuarioDataModel.getUsuario())));
+                usuario.setNome(cursor.getString(cursor.getColumnIndex(UsuarioDataModel.getNome())));
+                usuario.setSenha(cursor.getString(cursor.getColumnIndex(UsuarioDataModel.getSenha())));
 
-                lista.add(objLoginModel);
+                usuariolista.add(usuario);
 
             } while (cursor.moveToNext());
 
@@ -308,7 +333,20 @@ public class DataSource extends SQLiteOpenHelper {
 
         cursor.close();
 
-        return lista;
-    } */
+        return usuariolista;
+    }
+
+    public String validarUsuarioSenha (String usuario, String senha){
+
+        String sql = "SELECT * FROM " + UsuarioDataModel.getTABELA() + " WHERE "
+                + UsuarioDataModel.getUsuario() + "=? AND " + UsuarioDataModel.getSenha() + "=?";
+
+        cursor = db.rawQuery(sql, new String[]{usuario, senha});
+
+        if (cursor.getCount() > 0) {
+            return "OK";
+        }
+        return "ERRO";
+    }
 
 }

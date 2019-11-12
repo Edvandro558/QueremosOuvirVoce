@@ -19,7 +19,46 @@ public class PerguntasController extends DataSource {
         super(context);
     }
 
-    //TODO: Implentar buscar perguntas
+    //MÉTODOS DB
+
+    public void popularTabelaPerguntas(){
+        Perguntas perguntas1 = new Perguntas("atendimento","O que você achou do nosso atendimento?",
+                "Você acha que nosso atendimento poderia melhorar?");
+        salvar(perguntas1);
+
+        Perguntas perguntas2 = new Perguntas("ambiente","Você achou nosso ambiente agradável?",
+                "Você acha que poderiamos melhorar nosso ambiente?");
+        salvar(perguntas2);
+
+        Perguntas perguntas3 = new Perguntas("cafe","Você ficou satistfeito(a) com nosso café?",
+                "O nosso café poderia melhorar?");
+        salvar(perguntas3);
+
+        Perguntas perguntas4 = new Perguntas("bebidas","O que achou de nossas bebidas?",
+                "Você acha que nossas bebidas poderiam ser melhores?");
+        salvar(perguntas4);
+
+        Perguntas perguntas5 = new Perguntas("happyhour","Você gostou dos nossos drinks?",
+                "Você acha que nossos drinks poderiam ser melhores?");
+        salvar(perguntas5);
+
+        Perguntas perguntas6 = new Perguntas("pratos","Você ficou satisfeito(a) em relação aos nossos pratos",
+                "Você acha que nossos pratos poderiam ser melhores?");
+        salvar(perguntas6);
+
+        Perguntas perguntas7 = new Perguntas("doces","Você ficou satisfeito(a) com a qualidade dos nossos doces?",
+                "Nossos doces poderiam ser melhores de alguma maneira?");
+        salvar(perguntas7);
+
+        Perguntas perguntas8 = new Perguntas("salgados","O que achou dos nossos salgados?",
+                "Você acha que nossos salgados poderiam ser melhorados?");
+        salvar(perguntas8);
+
+        Perguntas perguntas9 = new Perguntas("boutique","O que achou da qualidade dos produtos da Boutique?",
+                "Os produtos da Boutique poderiam ser melhores?");
+        salvar(perguntas9);
+    }
+
     public ArrayList<Perguntas> getPerguntas(String categoria){
         return getPerguntasLista(categoria);
     }
@@ -76,6 +115,7 @@ public class PerguntasController extends DataSource {
         return sucesso;
     }
 
+    //REGRA DE NEGÓCIOS
     public String gerarString(List<String> lista) {
         String stringGerada = "";
         Iterator<String> iterator = lista.iterator();
