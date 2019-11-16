@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -161,11 +160,11 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                     perguntasFragment.setArguments(bundle);
                     fragmentManager = getActivity().getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.exit_to_right, R.anim.enter_from_right);
                     fragmentTransaction.replace(R.id.content_fragment, perguntasFragment).commit();
 
                     }else {
                         cv_iniciar.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
-                        Toast.makeText(getContext(),"Selecione a(s) categoria(s)! ",Toast.LENGTH_LONG).show();
                     }
 
 

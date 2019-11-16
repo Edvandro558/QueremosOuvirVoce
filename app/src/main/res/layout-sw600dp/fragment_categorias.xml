@@ -9,6 +9,7 @@
     tools:context=".fragment.CategoriasFragment">
 
     <FrameLayout
+        android:padding="16dp"
         android:layout_width="match_parent"
         android:layout_height="175dp">
 

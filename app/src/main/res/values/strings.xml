@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">Queremos Ouvir Você</string>
+    <string name="app_name">Queremos Ouvir Você!</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Queremos Ouvir Você</string>
-    <string name="nav_header_subtitle">Parasolution Group</string>
+    <string name="nav_header_title">Queremos Ouvir Você!</string>
+    <string name="nav_header_subtitle">Parasolutions Group</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_sair">Sair</string>
 
@@ -17,12 +17,12 @@
     <!-- TELA DE ESCOLHA DE IDIOMA -->
 
     <string name="modelo_fragment">Fragmento Modelo</string>
-    <string name="modelo_inicial">Escolha um idioma!</string>
+    <string name="modelo_inicial">Pesquisa de Satisfação</string>
     <string name="modelo_inicialIng">Choose your language!</string>
 
     <!-- TELA DE CATEGORIAS -->
 
-    <string name="txtCategorias">Selecione as categorias que se referem aos produtos consumidos</string>
+    <string name="txtCategorias">Selecione as categorias referentes produtos consumidos</string>
     <string name="txtCafe">CAFÉ</string>
     <string name="txtBebidas">BEBIDAS</string>
     <string name="txtHappyHour">HAPPYHOUR</string>
@@ -42,7 +42,7 @@
 
     <!-- TELA FINAL -->
     <string name="txtFinal">OBRIGADO!!!</string>
-    <string name="txtFina2">Sua Opinião é muito importante!</string>
+    <string name="txtFina2">Sua opinião é muito importante!</string>
 
     <!--TELA CADASTRO CLIENTE -->
     <string name="txtHintNome">Nome:</string>

@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -27,6 +28,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private TextInputLayout txtInputUsuario;
     private TextInputLayout txtInputSenha;
     private Button btnLogin;
+    FragmentManager fragmentManager;
 
     public LoginFragment() {
     }
@@ -68,7 +70,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     usuario.setSenha(txtInputSenha.getEditText().getText().toString().trim());
 
                     if(usuarioController.validarLogin(usuario.getUsuario(), usuario.getSenha())) {
-                        //INICIAR PROXIMO ACTIVITY
+                        fragmentManager = getFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.content_fragment, new AdministradorFragment()).commit();
                         Toast.makeText(context, "LOGADO", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(context, "USUARIO OU SENHA INCORRETO", Toast.LENGTH_SHORT).show();

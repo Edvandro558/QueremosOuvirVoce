@@ -4,11 +4,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
 import android.widget.ToggleButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import parasolution.queremosouvirvoce.R;
 
@@ -20,8 +21,10 @@ public class InicialFragment extends Fragment {
     ToggleButton togglebtnEua;
     ToggleButton togglebtnBrasil;
     ToggleButton togglebtnEspanhol;
+    Button btnIniciar;
 
-    FragmentManager fragmentTransaction;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     public InicialFragment() {
     }
@@ -39,7 +42,19 @@ public class InicialFragment extends Fragment {
 
         view =  inflater.inflate(R.layout.fragment_inicial, container, false);
 
-        togglebtnEua = view.findViewById(R.id.togglebtnEua);
+        btnIniciar = view.findViewById(R.id.btnInicial);
+        fragmentManager = getFragmentManager();
+
+        btnIniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.exit_to_right, R.anim.enter_from_right);
+                fragmentTransaction.replace(R.id.content_fragment, new CategoriasFragment()).commit();
+            }
+        });
+
+       /* togglebtnEua = view.findViewById(R.id.togglebtnEua);
         togglebtnBrasil = view.findViewById(R.id.togglebtnBrasil);
 
         //codigo para o togglebutton
@@ -73,7 +88,7 @@ public class InicialFragment extends Fragment {
             }
         });
 
-        //onEuaToggleClick(view);
+        //onEuaToggleClick(view);  */
 
         return view;
     }

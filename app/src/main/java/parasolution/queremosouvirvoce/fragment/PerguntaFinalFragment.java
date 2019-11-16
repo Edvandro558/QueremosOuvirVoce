@@ -6,12 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,10 +26,10 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
 
     private View view;
     private Intent intent;
-    private FragmentManager fragmentTransaction;
+    private FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
     private RadioButton rbZero,rbUm, rbDois, rbTres, rbQuatro, rbCinco, rbSeis, rbSete, rbOito, rbNove, rbDez;
     private Button btnSim, btnNao, btnCadastrado;
-    private ImageView btnVoltar2, btnFim;
     private Respostas respostas;
     private ArrayList<Integer> idPerguntas;
     private ArrayList<String> respostasCerteza;
@@ -54,8 +54,6 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         btnSim = view.findViewById(R.id.btnSim);
         btnNao = view.findViewById(R.id.btnNao);
         btnCadastrado = view.findViewById(R.id.btnCadastrado);
-       // btnVoltar2 = view.findViewById(R.id.btnVoltar2);
-        //btnFim = view.findViewById(R.id.btnFim);
         rbZero = view.findViewById(R.id.rbZero);
         rbUm = view.findViewById(R.id.rbUm);
         rbDois = view.findViewById(R.id.rbDois);
@@ -71,8 +69,6 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         btnSim.setOnClickListener(this);
         btnCadastrado.setOnClickListener(this);
         btnNao.setOnClickListener(this);
-       // btnVoltar2.setOnClickListener(this);
-        //btnFim.setOnClickListener(this);
         rbZero.setOnClickListener(this);
         rbUm.setOnClickListener(this);
         rbDois.setOnClickListener(this);
@@ -95,8 +91,8 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         }catch (NullPointerException ignored){}
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
-        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("hh");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH");
         respostas.setDataResposta(simpleDateFormat.format(calendar.getTime()));
         int horaAtual = Integer.parseInt(simpleTimeFormat.format(calendar.getTime()));
         if(horaAtual <= 12){
@@ -122,17 +118,16 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
                     Toast.makeText(getContext(),"Escolha Uma Alternativa!", Toast.LENGTH_SHORT).show();
                 }
                 break;
-         //   case R.id.btnVoltar2:
-           //     fragmentTransaction = getFragmentManager();
-            //    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
-            //    break;
+
             case R.id.btnSim:
                 if(checarRb()) {
 
                     contruirObjetos();
 
-                    fragmentTransaction = getFragmentManager();
-                    fragmentTransaction.beginTransaction().replace(R.id.content_fragment, new CadastroClienteFragment()).commit();
+                    fragmentManager = getFragmentManager();
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.exit_to_right, R.anim.enter_from_right);
+                    fragmentTransaction.replace(R.id.content_fragment, new CadastroClienteFragment()).commit();
                 }else {
                     Toast.makeText(getContext(),"Escolha Uma Alternativa!", Toast.LENGTH_SHORT).show();
                 }
@@ -198,13 +193,11 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
     }
 
     private boolean checarRb(){
-        boolean sucesso = false;
         if(rbZero.isChecked()||rbUm.isChecked()||rbDois.isChecked()||rbTres.isChecked()||rbQuatro.isChecked()||rbCinco.isChecked()||rbSeis.isChecked()||
                 rbSete.isChecked()||rbOito.isChecked()||rbNove.isChecked()||rbDez.isChecked()) {
-            sucesso = true;
+            return true;
         }
-
-        return sucesso;
+        return false;
     }
 
 }

@@ -90,70 +90,60 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
         perguntasAdapter.setOnItemClickListener(new PerguntasAdapter.OnItemClickListener() {
             @Override
             public void onEmote1Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoCerteza = position;
                 valorRespostaCerteza = "0.0";
             }
 
             @Override
             public void onEmote2Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoCerteza = position;
                 valorRespostaCerteza = "0.25";
             }
 
             @Override
             public void onEmote3Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoCerteza = position;
                 valorRespostaCerteza = "0.5";
             }
 
             @Override
             public void onEmote4Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoCerteza = position;
                 valorRespostaCerteza = "0.75";
             }
 
             @Override
             public void onEmote5Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoCerteza = position;
                 valorRespostaCerteza = "1.0";
             }
 
             @Override
             public void onEmote6Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoIncerteza = position;
                 valorRespostaIncerteza = "0.0";
             }
 
             @Override
             public void onEmote7Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoIncerteza = position;
                 valorRespostaIncerteza = "0.25";
             }
 
             @Override
             public void onEmote8Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoIncerteza = position;
                 valorRespostaIncerteza = "0.5";
             }
 
             @Override
             public void onEmote9Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoIncerteza = position;
                 valorRespostaIncerteza = "0.75";
             }
 
             @Override
             public void onEmote10Click(int position) {
-                Toast.makeText(getContext(), "Emote Clickado: " + position, Toast.LENGTH_SHORT).show();
                 posicaoObjetoIncerteza = position;
                 valorRespostaIncerteza = "1.0";
             }
@@ -187,6 +177,7 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
                     perguntaFinalFragment.setArguments(bundle);
                     fragmentManager = getActivity().getSupportFragmentManager();
                     fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.exit_to_right, R.anim.enter_from_right);
                     fragmentTransaction.replace(R.id.content_fragment, perguntaFinalFragment).commit();
                 }
                 break;
@@ -202,7 +193,6 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
                         posicaoObjetoCerteza--;
                     }
                 }
-                Toast.makeText(getContext(), "contador: " + contador, Toast.LENGTH_LONG).show();
                 break;
         }
 

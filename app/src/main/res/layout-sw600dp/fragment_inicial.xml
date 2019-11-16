@@ -22,20 +22,40 @@
 
 
     <TextView
-            android:id="@+id/txtInicial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:id="@+id/txtInicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-            android:text="@string/modelo_inicial"
         android:fontFamily="@font/gillsam"
-            android:textColor="#FFFFFF"
-        android:textSize="40sp"
-            android:textStyle="bold"
+        android:text="@string/modelo_inicial"
+        android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
 
-    <TextView
+    <Button
+        android:id="@+id/btnInicial"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button2"
+        android:fontFamily="@font/gillsam"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="Iniciar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtInicial"
+        app:layout_constraintVertical_bias="0.292" />
+
+    <!-- <TextView
         android:id="@+id/txtInicialIngles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,9 +69,9 @@
         app:layout_constraintBottom_toTopOf="@+id/togglebtnBrasil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" /> -->
 
-        <ToggleButton
+      <!--  <ToggleButton
             android:id="@+id/togglebtnBrasil"
             android:layout_width="200dp"
             android:layout_height="200dp"
@@ -79,6 +99,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/togglebtnBrasil"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" /> -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
