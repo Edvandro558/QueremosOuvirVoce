@@ -22,7 +22,7 @@
 
     <!-- TELA DE CATEGORIAS -->
 
-    <string name="txtCategorias">Selecione as categorias referentes produtos consumidos</string>
+    <string name="txtCategorias">Selecione as categorias referentes aos produtos consumidos</string>
     <string name="txtCafe">CAFÉ</string>
     <string name="txtBebidas">BEBIDAS</string>
     <string name="txtHappyHour">HAPPYHOUR</string>
@@ -50,7 +50,7 @@
     <string name="txtHintNascimento">Data de Nascimento:</string>
     <string name="txtHintFone">Celular: (Opcional)</string>
     <string name="txtNotificacao">Gostaria de ser notificado sobre nossas promoções?</string>
-    <string name="txtHintMensagem">(Opcional) Deixe sua sugestão, dúvida ou reclamaçao.</string>
+    <string name="txtHintMensagem">(Opcional) Deixe sua sugestão, dúvida ou reclamação.</string>
     <string name="btnEnviar">Enviar</string>
     <string name="btnCancelar">Cancelar</string>
     <string name="btnLimpar">Limpar</string>
