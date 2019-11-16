@@ -81,7 +81,7 @@ public class DataSource extends SQLiteOpenHelper {
                 "Você acha que poderíamos melhorar nosso ambiente?");
         adcionarPerguntas(perguntas2);
 
-        Perguntas perguntas3 = new Perguntas("cafe","Você ficou satisfeito(a) com nosso café?",
+        Perguntas perguntas3 = new Perguntas("cafe","Você ficou satisfeito(a) com o nosso café?",
                 "O nosso café poderia melhorar?");
         adcionarPerguntas(perguntas3);
 
