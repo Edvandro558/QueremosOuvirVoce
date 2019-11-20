@@ -253,8 +253,8 @@ public class DataSource extends SQLiteOpenHelper {
 
                 respostas.setId(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getId())));
                 respostas.setDataResposta(cursor.getString(cursor.getColumnIndex(RespostasDataModel.getDataResposta())));
-                respostas.setRespostaCerteza(cursor.getDouble(cursor.getColumnIndex(RespostasDataModel.getMi())));
-                respostas.setRespostaIncerteza(cursor.getDouble(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
                 respostas.setPeriodo(cursor.getString(cursor.getColumnIndex(RespostasDataModel.getPeriodo())));
                 respostas.setGrupos(cursor.getString(cursor.getColumnIndex(RespostasDataModel.getGrupo())));
                 respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getId())));
@@ -347,6 +347,38 @@ public class DataSource extends SQLiteOpenHelper {
             return "OK";
         }
         return "ERRO";
+    }
+
+   // select max(mi) as mi, max(lambda) as lambda, idPergunta,grupo from respostas group by idPergunta || grupo
+
+    public List<Respostas> getMaximizacao(){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " GROUP BY " + RespostasDataModel.getIdPergunta()
+                + " || " + RespostasDataModel.getGrupo();
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
     }
 
 }

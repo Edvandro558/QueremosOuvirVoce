@@ -4,8 +4,8 @@ public class Respostas {
 
     private int id;
     private String dataResposta;
-    private Double respostaCerteza;
-    private Double respostaIncerteza;
+    private float respostaCerteza;
+    private float respostaIncerteza;
     private String grupos;
     private String periodo;
     private int idPergunta;
@@ -29,19 +29,19 @@ public class Respostas {
         this.dataResposta = dataResposta;
     }
 
-    public Double getRespostaCerteza() {
+    public float getRespostaCerteza() {
         return respostaCerteza;
     }
 
-    public void setRespostaCerteza(Double respostaCerteza) {
+    public void setRespostaCerteza(float respostaCerteza) {
         this.respostaCerteza = respostaCerteza;
     }
 
-    public Double getRespostaIncerteza() {
+    public float getRespostaIncerteza() {
         return respostaIncerteza;
     }
 
-    public void setRespostaIncerteza(Double respostaIncerteza) {
+    public void setRespostaIncerteza(float respostaIncerteza) {
         this.respostaIncerteza = respostaIncerteza;
     }
 

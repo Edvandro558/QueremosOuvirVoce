@@ -24,8 +24,8 @@ public class RespostasDataModel {
         queryCriarTabelaRespostas += mi + " REAL, ";
         queryCriarTabelaRespostas += lambda + " REAL, ";
         queryCriarTabelaRespostas += grupo + " TEXT, ";
-        queryCriarTabelaRespostas += periodo + " REAL, ";
-        queryCriarTabelaRespostas += idPergunta + " INTEGER, FOREIGN KEY (" + RespostasDataModel.getIdPergunta() + ") REFERENCES " +
+        queryCriarTabelaRespostas += periodo + " TEXT, ";
+        queryCriarTabelaRespostas += idPergunta + " INTEGER, FOREIGN KEY (" + idPergunta + ") REFERENCES " +
                 PerguntasDataModel.getTABELA() + "(" + PerguntasDataModel.getId() + ")" + "ON DELETE CASCADE";
         queryCriarTabelaRespostas += ")";
 

@@ -184,8 +184,8 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
     private void contruirObjetos(){
         for (int i = 0; i < idPerguntas.size(); i++) {
             respostas.setIdPergunta(idPerguntas.get(i));
-            respostas.setRespostaCerteza(Double.parseDouble(respostasCerteza.get(i)));
-            respostas.setRespostaIncerteza(Double.parseDouble(respostasIncerteza.get(i)));
+            respostas.setRespostaCerteza(Float.parseFloat(respostasCerteza.get(i)));
+            respostas.setRespostaIncerteza(Float.parseFloat(respostasIncerteza.get(i)));
             RespostasController respostasController = new RespostasController(getContext());
             respostasController.salvar(respostas);
         }
