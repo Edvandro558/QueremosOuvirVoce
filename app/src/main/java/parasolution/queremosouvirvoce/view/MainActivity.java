@@ -21,8 +21,8 @@ import com.google.android.material.navigation.NavigationView;
 import parasolution.queremosouvirvoce.R;
 import parasolution.queremosouvirvoce.fragment.CadastroClienteFragment;
 import parasolution.queremosouvirvoce.fragment.CategoriasFragment;
+import parasolution.queremosouvirvoce.fragment.InicialFragment;
 import parasolution.queremosouvirvoce.fragment.LoginFragment;
-import parasolution.queremosouvirvoce.fragment.RelatorioFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity
         //neste caso precisa ser passado o nome do layout onde o fagmento sera exibido e o nome da classe do fragmento
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_right);
-        fragmentTransaction.replace(R.id.content_fragment, new RelatorioFragment()).commit();
+        fragmentTransaction.replace(R.id.content_fragment, new InicialFragment()).commit();
 
         navigationView.bringToFront();
 
