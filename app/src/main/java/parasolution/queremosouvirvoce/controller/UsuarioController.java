@@ -3,6 +3,7 @@ package parasolution.queremosouvirvoce.controller;
 import android.content.ContentValues;
 import android.content.Context;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -71,12 +72,45 @@ public class UsuarioController extends DataSource {
         return sucesso;
     }
 
+    //-----  MÉTODOS DE MAXIMIZAÇÃO ------
     public List<Respostas> maximizacao() {
         return getMaximizacao();
     }
 
-    public List<Respostas> minimizacao(){
-      List<Respostas> teste = maximizacao();
+    public List<Respostas> maximizacaoSemanal() {
+        return getMaximizacaoSemanal();
+    }
+
+    public List<Respostas> maximizacaoMensal() {
+        return getMaximizacaoMensal();
+    }
+
+    public List<Respostas> maximizacaoPeriodo(String periodo) {
+        return getMaximizacaoPeriodo(periodo);
+    }
+
+    public List<Respostas> maximizacaoSemanalPeriodo(String periodo) {
+        return getMaximizacaoSemanalPeriodo(periodo);
+    }
+
+    public List<Respostas> maximizacaoMensalPeriodo(String periodo) {
+        return getMaximizacaoMensalPeriodo(periodo);
+    }
+    //---------------------------------------------------------
+
+    public List<Respostas> minimizacao(String tipoRelatorio, String periodo){
+        List<Respostas> tipoMaximizacao = new ArrayList<>();
+        switch (tipoRelatorio){
+            case "geral":
+                tipoMaximizacao = maximizacao();
+                break;
+            case "semanal":
+                tipoMaximizacao = maximizacaoSemanal();
+                break;
+            case "mensal":
+                tipoMaximizacao = maximizacaoMensal();
+                break;
+        }
       List<Respostas> minimizacao = new ArrayList<>();
         List<Float> mi1 = new ArrayList<>();
         List<Float> mi2 = new ArrayList<>();
@@ -106,7 +140,7 @@ public class UsuarioController extends DataSource {
         Respostas resposta8 = new Respostas();
         Respostas resposta9 = new Respostas();
 
-        for (Respostas test : teste) {
+        for (Respostas test : tipoMaximizacao) {
           if(test.getIdPergunta() == 1){
               mi1.add(test.getRespostaCerteza());
               lambda1.add(test.getRespostaIncerteza());
@@ -145,24 +179,60 @@ public class UsuarioController extends DataSource {
               resposta9.setIdPergunta(test.getIdPergunta());
           }
           }
-        resposta1.setRespostaCerteza(Collections.min(mi1));
-        resposta2.setRespostaCerteza(Collections.min(mi2));
-        resposta3.setRespostaCerteza(Collections.min(mi3));
-        resposta4.setRespostaCerteza(Collections.min(mi4));
-        resposta5.setRespostaCerteza(Collections.min(mi5));
-        resposta6.setRespostaCerteza(Collections.min(mi6));
-        resposta7.setRespostaCerteza(Collections.min(mi7));
-        resposta8.setRespostaCerteza(Collections.min(mi8));
-        resposta9.setRespostaCerteza(Collections.min(mi9));
+        if(!mi1.isEmpty()) {
+            resposta1.setRespostaCerteza(Collections.min(mi1));
+        }
+        if(!mi2.isEmpty()) {
+            resposta2.setRespostaCerteza(Collections.min(mi2));
+        }
+        if(!mi3.isEmpty()) {
+            resposta3.setRespostaCerteza(Collections.min(mi3));
+        }
+        if(!mi4.isEmpty()) {
+            resposta4.setRespostaCerteza(Collections.min(mi4));
+        }
+        if(!mi5.isEmpty()) {
+            resposta5.setRespostaCerteza(Collections.min(mi5));
+        }
+        if(!mi6.isEmpty()) {
+            resposta6.setRespostaCerteza(Collections.min(mi6));
+        }
+        if(!mi7.isEmpty()) {
+            resposta7.setRespostaCerteza(Collections.min(mi7));
+        }
+        if(!mi8.isEmpty()) {
+            resposta8.setRespostaCerteza(Collections.min(mi8));
+        }
+        if(!mi9.isEmpty()) {
+            resposta9.setRespostaCerteza(Collections.min(mi9));
+        }
+        if(!lambda1.isEmpty()) {
         resposta1.setRespostaIncerteza(Collections.min(lambda1));
+        }
+        if(!lambda2.isEmpty()) {
         resposta2.setRespostaIncerteza(Collections.min(lambda2));
+        }
+        if(!lambda3.isEmpty()) {
         resposta3.setRespostaIncerteza(Collections.min(lambda3));
+        }
+        if(!lambda4.isEmpty()) {
         resposta4.setRespostaIncerteza(Collections.min(lambda4));
+        }
+        if(!lambda5.isEmpty()) {
         resposta5.setRespostaIncerteza(Collections.min(lambda5));
+        }
+        if(!lambda6.isEmpty()) {
         resposta6.setRespostaIncerteza(Collections.min(lambda6));
+        }
+        if(!lambda7.isEmpty()) {
         resposta7.setRespostaIncerteza(Collections.min(lambda7));
+        }
+        if(!lambda8.isEmpty()) {
         resposta8.setRespostaIncerteza(Collections.min(lambda8));
-        resposta9.setRespostaIncerteza(Collections.min(lambda9));
+        }
+        if(!lambda9.isEmpty()) {
+            resposta9.setRespostaIncerteza(Collections.min(lambda9));
+        }
         minimizacao.add(resposta1);
         minimizacao.add(resposta2);
         minimizacao.add(resposta3);
@@ -175,7 +245,7 @@ public class UsuarioController extends DataSource {
         return minimizacao;
     }
 
-    public List<Float> grauCertezaGeral(){
+ /*   public List<Float> grausCerteza(){
         List<Respostas> minimizacao = minimizacao();
         List<Float> grauCerteza = new ArrayList<>();
 
@@ -185,7 +255,7 @@ public class UsuarioController extends DataSource {
         return grauCerteza;
     }
 
-    public List<Float> grauContradicaoGeral(){
+    public List<Float> grausContradicao(){
         List<Respostas> minimizacao = minimizacao();
         List<Float> grauContradicao = new ArrayList<>();
 
@@ -193,15 +263,56 @@ public class UsuarioController extends DataSource {
             grauContradicao.add(respostas.getRespostaCerteza() + respostas.getRespostaIncerteza() - 1);
         }
         return grauContradicao;
-    }
+    } */
 
     public float grauCerteza(float certeza, float contradicao){
-        return certeza - contradicao;
+        return (certeza - contradicao) *100;
     }
 
     public float grauContradicao(float certeza, float contradicao){
-        return certeza + contradicao - 1;
+        return (certeza + contradicao - 1) *100;
     }
 
+    public float certezaGeral(List<Respostas> minimizacao){
+        List<Float> grauCerteza = new ArrayList<>();
+        for (Respostas respostas: minimizacao) {
+            grauCerteza.add(respostas.getRespostaCerteza() - respostas.getRespostaIncerteza());
+        }
+
+        float soma = 0f;
+        for (float temp : grauCerteza) {
+            soma =+ temp;
+        }
+        return (soma / grauCerteza.size()) *100;
+    }
+
+    public float contradicaoGeral(List<Respostas> minimizacao){
+        List<Float>grauContradicao = new ArrayList<>();
+        for (Respostas respostas: minimizacao) {
+            grauContradicao.add(respostas.getRespostaCerteza() + respostas.getRespostaIncerteza() - 1);
+        }
+        float soma = 0f;
+        for (float temp : grauContradicao) {
+            soma += temp;
+        }
+        return (soma / grauContradicao.size()) *100;
+    }
+
+    public String situacao(float certezaGeral){
+        String situcao = "";
+        if (certezaGeral < -70){
+            situcao = "Reprovado";
+        }else if (certezaGeral > -70 && certezaGeral < 70){
+            situcao = "Não conclusivo";
+        }else if (certezaGeral > 70){
+            situcao = "Aprovado";
+        }
+        return situcao;
+    }
+
+    public String formatarDecimal(float valor){
+        DecimalFormat mformat = new DecimalFormat("###,###.00");
+        return mformat.format(valor) + "%";
+    }
 }
 

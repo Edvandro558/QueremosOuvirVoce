@@ -20,7 +20,7 @@ public class RespostasDataModel {
         queryCriarTabelaRespostas = "CREATE TABLE " + TABELA;
         queryCriarTabelaRespostas += "(";
         queryCriarTabelaRespostas += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
-        queryCriarTabelaRespostas += dataResposta + " TEXT, ";
+        queryCriarTabelaRespostas += dataResposta + " DATE, ";
         queryCriarTabelaRespostas += mi + " REAL, ";
         queryCriarTabelaRespostas += lambda + " REAL, ";
         queryCriarTabelaRespostas += grupo + " TEXT, ";

@@ -10,13 +10,13 @@
         android:background="@drawable/round_3"
         android:orientation="vertical"
         android:padding="16dp"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="match_parent">
 
         <ImageView
             android:src="@drawable/imglogo"
-            android:layout_width="match_parent"
-            android:layout_height="268dp"/>
+            android:layout_width="218dp"
+            android:layout_height="218dp"/>
 
         <Button
             android:id="@+id/btnRelatorios"
@@ -24,7 +24,7 @@
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:fontFamily="@font/gillsam"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@drawable/custom_button2"
@@ -38,7 +38,7 @@
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:fontFamily="@font/gillsam"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@drawable/custom_button2"
@@ -52,7 +52,7 @@
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:fontFamily="@font/gillsam"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@drawable/custom_button2"
@@ -66,7 +66,7 @@
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:fontFamily="@font/gillsam"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:background="@drawable/custom_button2"

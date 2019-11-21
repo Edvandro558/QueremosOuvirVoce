@@ -52,7 +52,7 @@ public class DataSource extends SQLiteOpenHelper {
 
         }
         popularTabelaPerguntas();
-        inserirAdministrador();
+        popularAdministrador();
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -120,7 +120,7 @@ public class DataSource extends SQLiteOpenHelper {
     }
 
     //INSERIR USUARIO ADMINISTRADOR
-    private void inserirAdministrador(){
+    private void popularAdministrador(){
         Usuario usuario = new Usuario("ADMIN", "admin", "admin");
         adcionarAdministrador(usuario);
     }
@@ -349,8 +349,7 @@ public class DataSource extends SQLiteOpenHelper {
         return "ERRO";
     }
 
-   // select max(mi) as mi, max(lambda) as lambda, idPergunta,grupo from respostas group by idPergunta || grupo
-
+    //MAXIMIZACAO
     public List<Respostas> getMaximizacao(){
 
         Respostas respostas;
@@ -360,6 +359,158 @@ public class DataSource extends SQLiteOpenHelper {
         String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
                 + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " GROUP BY " + RespostasDataModel.getIdPergunta()
                 + " || " + RespostasDataModel.getGrupo();
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
+    }
+
+    public List<Respostas> getMaximizacaoSemanal(){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        /*String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE " + RespostasDataModel.getDataResposta() + " BETWEEN datetime('now', '-7 days') AND datetime('now', 'localtime')" +
+                " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();*/
+
+        String sql = "select max(mi) as mi, max(lambda) as lambda, idPergunta from respostas where dataResposta between datetime('now', '-7 days') AND datetime('now', 'localtime') group by idPergunta || grupo";
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
+    }
+
+    public List<Respostas> getMaximizacaoMensal(){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE " + RespostasDataModel.getDataResposta() + " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime')" +
+                " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
+    }
+
+    public List<Respostas> getMaximizacaoPeriodo(String periodo){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE " + RespostasDataModel.getPeriodo() + "=?" + " GROUP BY " + RespostasDataModel.getIdPergunta()
+                + " || " + RespostasDataModel.getGrupo();
+
+        cursor = db.rawQuery(sql,new String[]{periodo});
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
+    }
+
+    public List<Respostas> getMaximizacaoSemanalPeriodo(String periodo){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE "  + RespostasDataModel.getPeriodo() + "=?" + " AND " + RespostasDataModel.getDataResposta() +
+                " BETWEEN datetime('now', '-7 days') AND datetime('now', 'localtime')" + " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
+
+        cursor = db.rawQuery(sql,null);
+
+        if(cursor.moveToFirst()) {
+
+            do {
+                respostas = new Respostas();
+
+                respostas.setIdPergunta(cursor.getInt(cursor.getColumnIndex(RespostasDataModel.getIdPergunta())));
+                respostas.setRespostaCerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getMi())));
+                respostas.setRespostaIncerteza(cursor.getFloat(cursor.getColumnIndex(RespostasDataModel.getLambda())));
+
+                respostasLista.add(respostas);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+        return respostasLista;
+    }
+
+    public List<Respostas> getMaximizacaoMensalPeriodo(String periodo){
+
+        Respostas respostas;
+
+        List<Respostas> respostasLista = new ArrayList<>();
+
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+                + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE "  + RespostasDataModel.getPeriodo() + "=?" + " AND " + RespostasDataModel.getDataResposta() +
+                " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime')" + " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
 
         cursor = db.rawQuery(sql,null);
 

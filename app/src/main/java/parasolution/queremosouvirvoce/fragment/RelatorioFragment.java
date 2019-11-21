@@ -10,17 +10,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +38,7 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
     Context context;
     Spinner spinner_Periodo, spinner_Prazo;
     Button btnConsultar;
+    TextView txtPorcetagemCerteza, txtPorcertagemContradicao, txtSituacao;
 
     UsuarioController usuarioController;
     List<Respostas> minimizacao;
@@ -60,6 +65,9 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
         view =  inflater.inflate(R.layout.fragment_relatorios, container, false);
 
         btnConsultar = view.findViewById(R.id.btn_Consultar);
+        txtPorcetagemCerteza = view.findViewById(R.id.txt_Porcentagem_Certeza);
+        txtPorcertagemContradicao = view.findViewById(R.id.txt_Porcentagem_Contradicao);
+        txtSituacao = view.findViewById(R.id.txt_Situacao);
         barChart = view.findViewById(R.id.bg_geral);
 
         spinner_Periodo = view.findViewById(R.id.spinner_Periodo);
@@ -94,16 +102,20 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
 
         usuarioController = new UsuarioController(context);
         minimizacao =  new ArrayList<>();
-        minimizacao = usuarioController.minimizacao();
+        minimizacao = usuarioController.minimizacao("geral", null);
 
         barCerteza(minimizacao);
         barContradicao(minimizacao);
 
         BarDataSet barCertezaDataSet = new BarDataSet(barCertezaEntries, "Certeza");
         barCertezaDataSet.setColor(Color.parseColor("#E04D00"));
+        barCertezaDataSet.setValueTextSize(12);
+        barCertezaDataSet.setValueFormatter(new PercentFormatter());
 
         BarDataSet barContradicaoDataSet = new BarDataSet(barIncertezaEntries, "Contradição");
         barContradicaoDataSet.setColor(Color.parseColor("#4B392E"));
+        barContradicaoDataSet.setValueTextSize(12);
+        barContradicaoDataSet.setValueFormatter(new PercentFormatter());
 
         BarData data = new BarData(barCertezaDataSet, barContradicaoDataSet);
 
@@ -117,6 +129,23 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
         xAxis.setGranularity(1);
         xAxis.setGranularityEnabled(true);
         xAxis.setAxisMinimum(1);
+        xAxis.setTextSize(12);
+        xAxis.setDrawGridLines(false);
+
+        YAxis yAxisLeft = barChart.getAxisLeft();
+        yAxisLeft.setTextSize(12);
+        yAxisLeft.setDrawGridLines(true);
+        yAxisLeft.setValueFormatter(new PercentFormatter());
+        yAxisLeft.setAxisMinimum(-100);
+        yAxisLeft.setAxisMaximum(100);
+
+        YAxis yAxisRight = barChart.getAxisRight();
+        yAxisRight.setTextSize(12);
+        yAxisRight.setDrawGridLines(true);
+        yAxisRight.setValueFormatter(new PercentFormatter());
+        yAxisRight.setAxisMinimum(-100);
+        yAxisRight.setAxisMaximum(100);
+
 
         float groupSpace = 0.1f;
         float barSpace = 0.02f;
@@ -124,8 +153,10 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
 
         data.setBarWidth(barWidth);
         barChart.groupBars(1, groupSpace, barSpace);
-
+        barChart.animateXY(2000,2000);
         barChart.invalidate();
+
+        certezaContradicaoGeral(minimizacao);
 
         return view;
     }
@@ -159,7 +190,28 @@ public class RelatorioFragment extends Fragment implements AdapterView.OnItemSel
             barIncertezaEntries.add(new BarEntry(position, usuarioController.grauContradicao(respostas.getRespostaCerteza(), respostas.getRespostaIncerteza())));
             position++;
         }
+    }
 
+    private void certezaContradicaoGeral(List<Respostas> minimizacao){
+        float certezaGeal = usuarioController.certezaGeral(minimizacao);
+        txtPorcetagemCerteza.setText(usuarioController.formatarDecimal(usuarioController.certezaGeral(minimizacao)));
+        txtPorcertagemContradicao.setText(usuarioController.formatarDecimal(usuarioController.contradicaoGeral(minimizacao)));
+        txtSituacao.setText(usuarioController.situacao(certezaGeal));
+    }
+
+    public class PercentFormatter extends ValueFormatter{
+        private DecimalFormat mformat;
+        private boolean percentSignSeparated;
+
+        public PercentFormatter(){
+            mformat = new DecimalFormat("###,###,###.#");
+            percentSignSeparated = true;
+        }
+
+        @Override
+        public String getFormattedValue(float value){
+            return mformat.format(value) + (percentSignSeparated ? " %" : "%");
+        }
     }
 
 }

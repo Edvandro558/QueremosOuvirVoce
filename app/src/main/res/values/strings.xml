@@ -75,6 +75,9 @@
     <string name="txtPeriodo">Período:</string>
     <string name="txtRelatorio">Relatório Geral</string>
     <string name="txtPrazo">Prazo:</string>
+    <string name="txtCertezaGeral">Certeza Geral:</string>
+    <string name="txtContradicaoGeral">Contradição Geral:</string>
+    <string name="txtSituacaoAtual">Situação Atual:</string>
     <string-array name="prazo">
         <item>Geral</item>
         <item>Mensal</item>

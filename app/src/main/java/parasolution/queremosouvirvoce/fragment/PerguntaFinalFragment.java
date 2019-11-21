@@ -91,7 +91,7 @@ public class PerguntaFinalFragment extends Fragment implements View.OnClickListe
         }catch (NullPointerException ignored){}
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH");
         respostas.setDataResposta(simpleDateFormat.format(calendar.getTime()));
         int horaAtual = Integer.parseInt(simpleTimeFormat.format(calendar.getTime()));

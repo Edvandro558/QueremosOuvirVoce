@@ -11,9 +11,7 @@ import java.util.List;
 
 import parasolution.queremosouvirvoce.R;
 import parasolution.queremosouvirvoce.controller.PerguntasController;
-import parasolution.queremosouvirvoce.controller.UsuarioController;
 import parasolution.queremosouvirvoce.model.Perguntas;
-import parasolution.queremosouvirvoce.model.Respostas;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -33,26 +31,26 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                UsuarioController usuarioController = new UsuarioController(getBaseContext());
+              /* UsuarioController usuarioController = new UsuarioController(getBaseContext());
                 List<Respostas> teste = usuarioController.maximizacao();
                 for (Respostas tst:teste) {
                     Log.d("MAXIMIZACAO", "MI: "+ tst.getRespostaCerteza() + " - Lambda: " + tst.getRespostaIncerteza() + " - idPergunta: " + tst.getIdPergunta());
                 }
 
-                List<Respostas> teste2 = usuarioController.minimizacao();
+                List<Respostas> teste2 = usuarioController.minimizacao("geral", null);
                 for (Respostas tst:teste2) {
                     Log.d("MINIMIZACAO", "MI: "+ tst.getRespostaCerteza() + " - Lambda: " + tst.getRespostaIncerteza() + " - idPergunta: " + tst.getIdPergunta());
                 }
 
-                List<Float> teste3 = usuarioController.grauCertezaGeral();
+                List<Float> teste3 = usuarioController.grausCerteza();
                 for (float grau : teste3) {
                     Log.d("GRAU ","GRAU DE CERTEZA: " + grau );
                 }
 
-                List<Float> teste4 = usuarioController.grauContradicaoGeral();
+                List<Float> teste4 = usuarioController.grausContradicao();
                 for (float grau : teste4) {
                     Log.d("GRAU ","GRAU DE CONTRADICAO: " + grau );
-                }
+                } */
 
 
                 PerguntasController perguntasController = new PerguntasController(getBaseContext());
