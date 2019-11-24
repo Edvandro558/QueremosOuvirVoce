@@ -154,6 +154,12 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                     adcionarLista();
 
                     PerguntasController perguntasController = new PerguntasController(context);
+                    /**Bundle é uma classe utilizada para passar mensagens de um fragmento para o outro
+                     *nesse caso está sendo passado uma String, que foi construida pelo método gerarString da controller
+                     * utilizando a lista criada pelo método adcionarLista()
+                     * @see Bundle
+                     * @see PerguntasController
+                     */
                     Bundle bundle = new Bundle();
                     bundle.putString("Categorias", perguntasController.gerarString(adcionarLista()));
                     PerguntasFragment perguntasFragment = new PerguntasFragment();
@@ -166,12 +172,14 @@ public class CategoriasFragment extends Fragment implements View.OnClickListener
                     }else {
                         cv_iniciar.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
                     }
-
-
                 break;
         }
     }
 
+    /**
+     * método que pega as opções que estiverem TRUE e adciona uma string correspondente a lista
+     * @return retorna as strings correspondentes aos booleans TRUE
+     */
     private List<String> adcionarLista() {
 
         List<String> categorias = new ArrayList<>();

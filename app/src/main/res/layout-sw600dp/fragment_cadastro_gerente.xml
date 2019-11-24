@@ -38,6 +38,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gillsam"
@@ -55,10 +56,13 @@
             android:textColorHint="@color/colorPrimary"
             app:boxStrokeColor="@color/colorPrimary"
             android:layout_below="@id/txt_Input_Nome"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
             app:errorEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_Usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gillsam"
@@ -75,13 +79,15 @@
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimary"
             app:boxStrokeColor="@color/colorPrimary"
-            app:counterMaxLength="15"
+            app:counterMaxLength="12"
+            app:counterEnabled="true"
             app:errorEnabled="true"
             android:layout_below="@id/txt_Input_Usuario"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_Senha1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gillsam"
@@ -98,13 +104,15 @@
             android:layout_height="wrap_content"
             android:textColorHint="@color/colorPrimary"
             app:boxStrokeColor="@color/colorPrimary"
-            app:counterMaxLength="15"
+            app:counterMaxLength="12"
+            app:counterEnabled="true"
             android:layout_below="@id/txt_Input_Senha1"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense" >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_Senha2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gillsam"

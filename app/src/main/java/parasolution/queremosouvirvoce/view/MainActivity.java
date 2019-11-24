@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
+    //método do botão de navegação
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    //método que cria o menu superior
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    // método com o listener do botão sair no menu superior
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -123,6 +125,14 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * método que cria o Dialog view do menu sobre
+     * Neste caso está sendo criado o Dialog custom através de um layout criado.
+     * O inflater é resposável por "inflar" o layout
+     * O AlertDialog é a classe cria a janela do Dialog onde o layout é inflado
+     * @see LayoutInflater
+     * @see AlertDialog
+     */
     void sobreDialog(){
         LayoutInflater layoutInflater = LayoutInflater.from(this);
         View view = layoutInflater.inflate(R.layout.sobre_alert_dialog, null);

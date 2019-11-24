@@ -3,7 +3,7 @@ package parasolution.queremosouvirvoce.controller;
 import android.content.ContentValues;
 import android.content.Context;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import parasolution.queremosouvirvoce.datamodel.ClienteDataModel;
 import parasolution.queremosouvirvoce.datasource.DataSource;
@@ -17,7 +17,7 @@ public class ClienteController extends DataSource {
         super(context);
     }
 
-    public List<Cliente> listar(){
+    public ArrayList<Cliente> listar(){
         return getAllClientes();
     }
 

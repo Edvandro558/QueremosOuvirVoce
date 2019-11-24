@@ -68,11 +68,24 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
+        /**
+         * aqui está sendo recebida a mensagem passada pela classe CategoriasFragment
+         * está dentro do bloco try\catch para caso a String esteja vazia.
+         */
         try {
             Bundle bundle = getArguments();
             categoria = bundle.getString("Categorias");
         }catch (NullPointerException ignored){}
 
+        /**
+         * aqui é onde os método que geram as perguntas são invocados. Primeiro a String contendo as categorias
+         * é passada pra Model, e depois o método da controller que chama a busca no banco é invocado e recebe String de categorias
+         * também é invocado um método da controller que pega o id das perguntas que será utilizado para salvar as respostas no DB
+         * após isso o objeto da classe adapter recebe o dataset para injetar as perguntas no layout
+         * e por último container recycler view recebe o adpter.
+         * @see PerguntasAdapter
+         * @see PerguntasController
+         */
         Perguntas perguntas = new Perguntas();
         perguntas.setCategoria(categoria);
         PerguntasController perguntasController = new PerguntasController(context);
@@ -80,13 +93,15 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
         dataset = perguntasController.getPerguntas(perguntas.getCategoria());
         idPerguntas = new ArrayList<>();
         idPerguntas = perguntasController.listarIdPerguntas(dataset);
-
         perguntasAdapter = new PerguntasAdapter(dataset);
         recyclerView.setAdapter(perguntasAdapter);
 
         respostaCerteza = new ArrayList<>();
         respostaIncerteza = new ArrayList<>();
 
+        /**
+         * aqui está instaciado o listener da classe adapter para pegar o click nos ícones.
+         */
         perguntasAdapter.setOnItemClickListener(new PerguntasAdapter.OnItemClickListener() {
             @Override
             public void onEmote1Click(int position) {
@@ -161,7 +176,7 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.btnProximo:
                 if (contador == posicaoObjetoCerteza && contador == posicaoObjetoIncerteza) {
-                    somarContador();
+                    proximoObjeto();
                     adcionarLista();
                     Log.d("teste", "contador: " + contador);
                 } else {
@@ -186,9 +201,9 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
                     fragmentManager = getFragmentManager();
                     fragmentManager.beginTransaction().replace(R.id.content_fragment, new CategoriasFragment()).commit();
                 } else if (contador <= perguntasAdapter.getItemCount()) {
-                    subtrairContador();
+                    objetoAnterior();
                     if (contador == posicaoObjetoCerteza) {
-                        removeFromList();
+                        removerLista();
                         posicaoObjetoIncerteza--;
                         posicaoObjetoCerteza--;
                     }
@@ -198,23 +213,36 @@ public class PerguntasFragment extends Fragment implements View.OnClickListener 
 
     }
 
-    private void somarContador() {
+    /**
+     * método para fazer o Scroll para o próximo objeto do recyclerView
+     */
+    private void proximoObjeto() {
         contador++;
         recyclerView.smoothScrollToPosition(contador);
     }
 
-    private void subtrairContador() {
+    /**
+     * método para fazer o Scroll para o objeto anterior do recyclerView
+     */
+    private void objetoAnterior() {
         contador--;
         recyclerView.smoothScrollToPosition(contador);
     }
 
+    /**
+     * método para adcionar as respostas a lista de repostas
+     */
     private void adcionarLista() {
         respostaCerteza.add(valorRespostaCerteza);
         respostaIncerteza.add(valorRespostaIncerteza);
         Log.d("Teste", "Teste Seleção Certeza: " + respostaCerteza + " Teste Seleção Incerteza: " + respostaIncerteza);
     }
 
-    private void removeFromList() {
+    /**
+     * método para remover a ultima resposta da lista de repostas
+     * usando como referência o tamanho da lista
+     */
+    private void removerLista() {
         int ultimaPosicao = respostaCerteza.size();
         respostaCerteza.remove(ultimaPosicao - 1);
         respostaIncerteza.remove(ultimaPosicao - 1);

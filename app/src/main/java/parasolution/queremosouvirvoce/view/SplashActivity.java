@@ -11,7 +11,9 @@ import java.util.List;
 
 import parasolution.queremosouvirvoce.R;
 import parasolution.queremosouvirvoce.controller.PerguntasController;
+import parasolution.queremosouvirvoce.controller.UsuarioController;
 import parasolution.queremosouvirvoce.model.Perguntas;
+import parasolution.queremosouvirvoce.model.Respostas;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -25,24 +27,40 @@ public class SplashActivity extends AppCompatActivity {
         apresentarTelaSplash();
     }
 
+    /**
+     * método utilizado para "manusear" a tela splash, através do método postDelayed da classe Handler
+     * que básicamento executa um processo que estiver contido no Handler após um período de tempo. Nesse
+     * caso é necessário implementar a Runnable, que é quem de fato executa o processo. E dentro do método run
+     * o bloco que deve ser executado.
+     * O Intent é uma descrição abstrata da ação a ser performada, neste caso a transição de uma activity para outra
+     * através do método startActivity.
+     * O finish(), é utilizado para que após o chamar o método startActivity, a activity atual seja destruida, não permanecendo
+     * na pilha de stack.
+     * @see Handler
+     * @see Runnable
+     * @see Intent
+     */
     private void apresentarTelaSplash(){
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
-              /* UsuarioController usuarioController = new UsuarioController(getBaseContext());
+
+
+               UsuarioController usuarioController = new UsuarioController(getBaseContext());
                 List<Respostas> teste = usuarioController.maximizacao();
                 for (Respostas tst:teste) {
                     Log.d("MAXIMIZACAO", "MI: "+ tst.getRespostaCerteza() + " - Lambda: " + tst.getRespostaIncerteza() + " - idPergunta: " + tst.getIdPergunta());
                 }
 
-                List<Respostas> teste2 = usuarioController.minimizacao("geral", null);
+                List<Respostas> teste2 = usuarioController.minimizacao("periodo", "Matutino");
                 for (Respostas tst:teste2) {
                     Log.d("MINIMIZACAO", "MI: "+ tst.getRespostaCerteza() + " - Lambda: " + tst.getRespostaIncerteza() + " - idPergunta: " + tst.getIdPergunta());
                 }
 
-                List<Float> teste3 = usuarioController.grausCerteza();
+
+              /*  List<Float> teste3 = usuarioController.grausCerteza();
                 for (float grau : teste3) {
                     Log.d("GRAU ","GRAU DE CERTEZA: " + grau );
                 }

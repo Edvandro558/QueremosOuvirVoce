@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import parasolution.queremosouvirvoce.datamodel.UsuarioDataModel;
 import parasolution.queremosouvirvoce.datasource.DataSource;
@@ -16,6 +17,7 @@ import parasolution.queremosouvirvoce.model.Usuario;
 public class UsuarioController extends DataSource {
 
     ContentValues dados;
+    public static final Pattern PASSWORD_PATTERN = Pattern.compile("^" + "(?=.*[a-zA-Z])" + "(?=\\S+$)" + ".{4,}" + "$");
 
     public UsuarioController(Context context) {
         super(context);
@@ -101,17 +103,26 @@ public class UsuarioController extends DataSource {
     public List<Respostas> minimizacao(String tipoRelatorio, String periodo){
         List<Respostas> tipoMaximizacao = new ArrayList<>();
         switch (tipoRelatorio){
-            case "geral":
+            case "Geral":
                 tipoMaximizacao = maximizacao();
                 break;
-            case "semanal":
+            case "Semanal":
                 tipoMaximizacao = maximizacaoSemanal();
                 break;
-            case "mensal":
+            case "Mensal":
                 tipoMaximizacao = maximizacaoMensal();
                 break;
+            case "Periodo":
+                tipoMaximizacao = maximizacaoPeriodo(periodo);
+                break;
+            case "SemanalPeriodo":
+                tipoMaximizacao = maximizacaoSemanalPeriodo(periodo);
+                break;
+            case "MensalPeriodo":
+                tipoMaximizacao = maximizacaoMensalPeriodo(periodo);
+                break;
         }
-      List<Respostas> minimizacao = new ArrayList<>();
+        List<Respostas> minimizacao = new ArrayList<>();
         List<Float> mi1 = new ArrayList<>();
         List<Float> mi2 = new ArrayList<>();
         List<Float> mi3 = new ArrayList<>();
@@ -281,7 +292,7 @@ public class UsuarioController extends DataSource {
 
         float soma = 0f;
         for (float temp : grauCerteza) {
-            soma =+ temp;
+            soma += temp;
         }
         return (soma / grauCerteza.size()) *100;
     }
@@ -311,7 +322,7 @@ public class UsuarioController extends DataSource {
     }
 
     public String formatarDecimal(float valor){
-        DecimalFormat mformat = new DecimalFormat("###,###.00");
+        DecimalFormat mformat = new DecimalFormat("###,##0.00");
         return mformat.format(valor) + "%";
     }
 }

@@ -269,11 +269,11 @@ public class DataSource extends SQLiteOpenHelper {
     }
 
     //LISTAR (CIENTES)
-    public List<Cliente> getAllClientes(){
+    public ArrayList<Cliente> getAllClientes(){
 
         Cliente cliente;
 
-        List<Cliente> clienteLista = new ArrayList<>();
+        ArrayList<Cliente> clienteLista = new ArrayList<>();
 
         String sql = "SELECT * FROM " + ClienteDataModel.getTABELA() + " ORDER BY id";
 
@@ -386,11 +386,9 @@ public class DataSource extends SQLiteOpenHelper {
 
         List<Respostas> respostasLista = new ArrayList<>();
 
-        /*String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
+        String sql = "SELECT " + RespostasDataModel.getIdPergunta() + ", MAX(" + RespostasDataModel.getMi() + ") AS mi, MAX(" + RespostasDataModel.getLambda()
                 + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE " + RespostasDataModel.getDataResposta() + " BETWEEN datetime('now', '-7 days') AND datetime('now', 'localtime')" +
-                " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();*/
-
-        String sql = "select max(mi) as mi, max(lambda) as lambda, idPergunta from respostas where dataResposta between datetime('now', '-7 days') AND datetime('now', 'localtime') group by idPergunta || grupo";
+                " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
 
         cursor = db.rawQuery(sql,null);
 
@@ -452,7 +450,7 @@ public class DataSource extends SQLiteOpenHelper {
                 + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE " + RespostasDataModel.getPeriodo() + "=?" + " GROUP BY " + RespostasDataModel.getIdPergunta()
                 + " || " + RespostasDataModel.getGrupo();
 
-        cursor = db.rawQuery(sql,new String[]{periodo});
+        cursor = db.rawQuery(sql, new String[]{periodo});
 
         if(cursor.moveToFirst()) {
 
@@ -482,7 +480,7 @@ public class DataSource extends SQLiteOpenHelper {
                 + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE "  + RespostasDataModel.getPeriodo() + "=?" + " AND " + RespostasDataModel.getDataResposta() +
                 " BETWEEN datetime('now', '-7 days') AND datetime('now', 'localtime')" + " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
 
-        cursor = db.rawQuery(sql,null);
+        cursor = db.rawQuery(sql, new String[]{periodo});
 
         if(cursor.moveToFirst()) {
 
@@ -512,7 +510,7 @@ public class DataSource extends SQLiteOpenHelper {
                 + ") AS lambda FROM " + RespostasDataModel.getTABELA() + " WHERE "  + RespostasDataModel.getPeriodo() + "=?" + " AND " + RespostasDataModel.getDataResposta() +
                 " BETWEEN datetime('now', 'start of month') AND datetime('now', 'localtime')" + " GROUP BY " + RespostasDataModel.getIdPergunta() + " || " + RespostasDataModel.getGrupo();
 
-        cursor = db.rawQuery(sql,null);
+        cursor = db.rawQuery(sql, new String[]{periodo});
 
         if(cursor.moveToFirst()) {
 

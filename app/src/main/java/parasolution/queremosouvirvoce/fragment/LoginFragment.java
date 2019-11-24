@@ -13,15 +13,11 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.util.regex.Pattern;
-
 import parasolution.queremosouvirvoce.R;
 import parasolution.queremosouvirvoce.controller.UsuarioController;
 import parasolution.queremosouvirvoce.model.Usuario;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
-
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^" + "(?=.*[a-zA-Z])" + "(?=\\S+$)" + ".{4,}" + "$");
 
     View view;
     Context context;
@@ -29,6 +25,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private TextInputLayout txtInputSenha;
     private Button btnLogin;
     FragmentManager fragmentManager;
+    UsuarioController usuarioController;
+    Usuario usuario;
 
     public LoginFragment() {
     }
@@ -52,6 +50,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         txtInputSenha = view.findViewById(R.id.txtInputSenha);
         btnLogin = view.findViewById(R.id.btnLogIn);
 
+        usuario = new Usuario();
+        usuarioController = new UsuarioController(context);
+
+
+
         btnLogin.setOnClickListener(this);
 
         return view;
@@ -64,8 +67,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 if(!validarUsuario() | !validarSenha()){
                     return;
                 } else {
-                    Usuario usuario = new Usuario();
-                    UsuarioController usuarioController = new UsuarioController(context);
                     usuario.setUsuario(txtInputUsuario.getEditText().getText().toString().trim());
                     usuario.setSenha(txtInputSenha.getEditText().getText().toString().trim());
 
@@ -77,16 +78,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         Toast.makeText(context, "USUARIO OU SENHA INCORRETO", Toast.LENGTH_SHORT).show();
                     }
                 }
-                String input = "Usuário: " + txtInputUsuario.getEditText().getText().toString();
-                input += "\n";
-                input += "Senha: " + txtInputSenha.getEditText().getText().toString();
-
-                Toast.makeText(context, input, Toast.LENGTH_SHORT).show();
                 break;
         }
     }
 
-    protected boolean validarUsuario(){
+    private boolean validarUsuario(){
         String usuarioInput = txtInputUsuario.getEditText().getText().toString().trim();
 
         if(usuarioInput.isEmpty()){
@@ -110,7 +106,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             txtInputSenha.setError("Informe a senha");
             txtInputSenha.requestFocus();
             return false;
-        } else if(!PASSWORD_PATTERN.matcher(senhaInput).matches()){
+        } else if(!usuarioController.PASSWORD_PATTERN.matcher(senhaInput).matches()){
             txtInputSenha.setError("Senha muito fraca");
             txtInputSenha.requestFocus();
             return false;

@@ -85,7 +85,7 @@
     </string-array>
 
     <string-array name="periodo">
-        <item>Geral</item>
+        <item>Integral</item>
         <item>Matutino</item>
         <item>Vespertino</item>
     </string-array>
@@ -98,6 +98,11 @@
 
     <!-- TELA DADOS CLIENTES -->
     <string name="txtDadosCliente">Dados Clientes</string>
+    <string name="txtNome">Nome:</string>
+    <string name="txtEmail">E-Mail:</string>
+    <string name="txtNascimento">Nascimento:</string>
+    <string name="txtFone">Fone:</string>
+    <string name="txtNotificacao2">Notificação:</string>
 
     <!-- TELA SOBRE -->
     <string name="txtTermos"><b>TERMOS E CONDIÇÕES GERAIS DE USO DO APLICATIVO</b>\n\n<b>“Queremos ouvir você!”</b>\n\n</string>

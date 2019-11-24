@@ -16,7 +16,7 @@ public class UsuarioDataModel {
         queryCriarTabela += "(";
         queryCriarTabela += id + " INTEGER PRIMARY KEY AUTOINCREMENT, ";
         queryCriarTabela += nome + " TEXT NOT NULL, ";
-        queryCriarTabela += usuario + " TEXT NOT NULL, ";
+        queryCriarTabela += usuario + " TEXT NOT NULL UNIQUE, ";
         queryCriarTabela += senha + " TEXT NOT NULL";
         queryCriarTabela += ")";
 

@@ -22,8 +22,6 @@ public class FinalActivity extends AppCompatActivity {
 
         apresentarTelaFinal();
 
-
-
     }
 
     private void apresentarTelaFinal(){
